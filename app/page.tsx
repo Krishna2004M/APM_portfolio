@@ -26,8 +26,14 @@ const heroLinks: Array<{
   href: string
   label: string
   icon: ElementType<{ className?: string }>
+  download?: string
 }> = [
-  { href: "/M_Krishna_Product_APM_CV.pdf", label: "Download CV", icon: Download },
+  {
+    href: "/M_Krishna_Product_APM_CV.pdf",
+    label: "Download CV",
+    icon: Download,
+    download: "M_Krishna_Product_APM_CV.pdf",
+  },
   { href: "https://linkedin.com/in/m-krishna-krishna", label: "LinkedIn", icon: LinkedinIcon },
   { href: "https://github.com/Krishna2004M", label: "GitHub", icon: GithubIcon },
 ]
@@ -79,6 +85,7 @@ export default function HomePage() {
                     href={item.href}
                     target={external ? "_blank" : undefined}
                     rel={external ? "noreferrer" : undefined}
+                    download={item.download}
                     className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium shadow-sm transition-all hover:-translate-y-0.5 hover:bg-secondary hover:shadow-md"
                   >
                     <Icon className="size-4" />
