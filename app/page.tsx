@@ -62,9 +62,9 @@ export default function HomePage() {
               </div>
             </div>
             <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-              Aspiring Associate Product Manager with hands-on product-operations experience in
-              AI-enabled language learning. I review learner flows, Figma lesson modules, scripts,
-              content quality, and release readiness to improve product experience.
+              Associate Product Manager focused on AI-enabled language learning, with hands-on
+              product-operations experience. I review learner flows, Figma lesson modules,
+              scripts, content quality, and release readiness to improve product experience.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
