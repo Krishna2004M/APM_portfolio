@@ -5,7 +5,6 @@ import { Geist, Geist_Mono, Newsreader } from 'next/font/google'
 import './globals.css'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
-import { ThemeProvider } from '@/components/theme-provider'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({
@@ -56,28 +55,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} bg-background`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} ${newsreader.variable} bg-background`}
     >
       <body className="font-sans antialiased text-foreground">
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (() => {
-                try {
-                  const theme = localStorage.getItem('theme') || 'system';
-                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  const resolved = theme === 'system' ? (prefersDark ? 'dark' : 'light') : theme;
-                  document.documentElement.classList.toggle('dark', resolved === 'dark');
-                  document.documentElement.style.colorScheme = resolved;
-                } catch (_) {}
-              })();
-            `,
-          }}
-        />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
         >
           Skip to content
         </a>
@@ -97,12 +80,10 @@ export default function RootLayout({
             }),
           }}
         />
-        <ThemeProvider>
-          <SiteNav />
-          <div id="main-content">{children}</div>
-          <SiteFooter />
-          {process.env.NODE_ENV === 'production' && <Analytics />}
-        </ThemeProvider>
+        <SiteNav />
+        <div id="main-content">{children}</div>
+        <SiteFooter />
+        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

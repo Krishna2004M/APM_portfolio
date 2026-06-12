@@ -12,6 +12,8 @@ import {
 } from "lucide-react"
 import { LinkedinIcon, GithubIcon } from "@/components/brand-icons"
 import { Reveal } from "@/components/reveal"
+import { HoverDot } from "@/components/hover-dot"
+import { SectionLabel } from "@/components/section-label"
 
 export const metadata = {
   title: "Skills & Contact - M Krishna",
@@ -79,137 +81,194 @@ const contactLinks: Array<{
   },
 ]
 
+const skillCategories = [
+  {
+    label: "Product",
+    skills: [
+      "Product Thinking",
+      "User Journey Mapping",
+      "UX Review",
+      "Feature Prioritization",
+      "Product Documentation",
+      "QA Testing",
+    ],
+  },
+  {
+    label: "AI Product",
+    skills: [
+      "GenAI",
+      "LLMs",
+      "Prompt Evaluation",
+      "AI Safety & Red-Teaming",
+      "Model-Output Evaluation",
+      "AI Workflow Automation",
+    ],
+  },
+  {
+    label: "Analytics",
+    skills: [
+      "SQL",
+      "Excel",
+      "Google Sheets",
+      "Funnel Analysis",
+      "Retention",
+      "Engagement & Drop-off Analysis",
+    ],
+  },
+  {
+    label: "Tools",
+    skills: ["Figma", "Streamlit", "GitHub", "OpenAI API", "Hugging Face", "Ollama"],
+  },
+]
+
 export default function AboutPage() {
   const delays = [100, 200, 300, 400, 400] as const
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
-      <section>
-        <Reveal>
-          <div className="mb-3 flex items-center gap-3">
-            <span className="h-px w-8 bg-primary" />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              PM Competencies
-            </span>
+    <main className="overflow-hidden">
+      {/* HERO */}
+      <section className="relative border-b border-border">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-1/2 top-1/3 size-[50vw] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+        </div>
+        <div className="mx-auto max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pt-48">
+          <Reveal>
+            <SectionLabel accent>PM Competencies</SectionLabel>
+          </Reveal>
+          <Reveal delay={100}>
+            <h1 className="mt-8 max-w-5xl font-serif text-[clamp(48px,9vw,128px)] font-medium leading-[0.95] tracking-[-0.025em] text-foreground">
+              How I think as an
+              <br />
+              <span className="italic">APM candidate</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-10 max-w-2xl font-serif text-xl leading-[1.4] tracking-tight text-muted-foreground md:text-2xl">
+              I&apos;m early in my product career, but my work in AI-enabled learning has shaped a
+              clear way of thinking about products.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* COMPETENCIES */}
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-28">
+          <div className="grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+            {competencies.map((c, i) => {
+              const Icon = c.icon
+              return (
+                <Reveal key={c.t} delay={delays[i]} className="bg-background">
+                  <div className="group relative flex h-full flex-col gap-6 p-8 transition-colors hover:bg-card md:p-10">
+                    <HoverDot />
+                    <div className="flex items-center justify-between">
+                      <Icon className="size-5 text-primary" />
+                      <span className="font-mono text-xs text-primary">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h2 className="font-serif text-2xl font-medium leading-[1.15] tracking-tight text-foreground md:text-3xl">
+                      {c.t}
+                    </h2>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{c.d}</p>
+                  </div>
+                </Reveal>
+              )
+            })}
           </div>
-          <h1 className="max-w-2xl text-balance font-serif text-4xl font-medium tracking-tight md:text-5xl">
-            How I think as an APM candidate
-          </h1>
-          <p className="mt-4 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
-            I&apos;m early in my product career, but my work in AI-enabled learning has shaped a clear
-            way of thinking about products.
-          </p>
-        </Reveal>
+        </div>
+      </section>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {competencies.map((c, i) => {
-            const Icon = c.icon
-
-            return (
-              <Reveal key={c.t} delay={delays[i]}>
-                <div className="flex h-full flex-col gap-3 rounded-xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-foreground/30 hover:shadow-md dark:hover:shadow-foreground/5">
-                  <Icon className="size-5 text-primary" />
-                  <span className="font-mono text-sm text-primary">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h2 className="font-medium leading-snug text-foreground">{c.t}</h2>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{c.d}</p>
+      {/* SKILLS */}
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-28">
+          <Reveal>
+            <SectionLabel>Skills</SectionLabel>
+            <h2 className="mt-6 font-serif text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">
+              What I <span className="italic text-primary">work with</span>
+            </h2>
+          </Reveal>
+          <div className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2 md:grid-cols-4">
+            {skillCategories.map((cat, index) => (
+              <Reveal
+                key={cat.label}
+                delay={index === 0 ? 100 : index === 1 ? 200 : index === 2 ? 300 : 400}
+                className="bg-background"
+              >
+                <div className="h-full p-8 transition-colors hover:bg-card md:p-10">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-primary">
+                    {cat.label}
+                  </p>
+                  <ul className="mt-6 flex flex-col gap-3">
+                    {cat.skills.map((s) => (
+                      <li
+                        key={s}
+                        className="flex items-center gap-3 text-sm leading-snug text-foreground"
+                      >
+                        <span className="size-1 rounded-full bg-primary/60" />
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </Reveal>
-            )
-          })}
-        </div>
-      </section>
-
-      <section className="mt-16">
-        <Reveal>
-          <div className="mb-3 flex items-center gap-3">
-            <span className="h-px w-8 bg-primary" />
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Skills
-            </span>
+            ))}
           </div>
-          <h2 className="font-serif text-2xl font-medium tracking-tight">What I work with</h2>
-        </Reveal>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-          {[
-            {
-              label: "Product",
-              skills: ["Product Thinking", "User Journey Mapping", "UX Review", "Feature Prioritization", "Product Documentation", "QA Testing"],
-            },
-            {
-              label: "AI Product",
-              skills: ["GenAI", "LLMs", "Prompt Evaluation", "AI Safety & Red-Teaming", "Model-Output Evaluation", "AI Workflow Automation"],
-            },
-            {
-              label: "Analytics",
-              skills: ["SQL", "Excel", "Google Sheets", "Funnel Analysis", "Retention", "Engagement & Drop-off Analysis"],
-            },
-            {
-              label: "Tools",
-              skills: ["Figma", "Streamlit", "GitHub", "OpenAI API", "Hugging Face", "Ollama"],
-            },
-          ].map((cat, index) => (
-            <Reveal key={cat.label} delay={index === 0 ? 100 : index === 1 ? 200 : index === 2 ? 300 : 400}>
-              <div className="h-full rounded-xl border border-border bg-card p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-foreground/30 hover:shadow-md dark:hover:shadow-foreground/5">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-primary">
-                  {cat.label}
-                </p>
-                <ul className="flex flex-col gap-1.5">
-                  {cat.skills.map((s) => (
-                    <li key={s} className="text-sm leading-snug text-muted-foreground">
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
         </div>
       </section>
 
-      <Reveal as="section" className="mt-16 rounded-2xl border border-border bg-secondary/40 p-8 shadow-sm md:p-12">
-        <h2 className="font-serif text-3xl font-medium tracking-tight">Get in touch</h2>
-        <p className="mt-3 max-w-md text-pretty leading-relaxed text-muted-foreground">
-          I&apos;m looking for Associate Product Manager and Product Analyst opportunities,
-          especially in AI products and learning tech. Happy to walk through the case study.
-        </p>
+      {/* CONTACT */}
+      <Reveal as="section" className="border-b border-border">
+        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+          <SectionLabel accent>Get in touch</SectionLabel>
+          <h2 className="mt-6 max-w-4xl font-serif text-5xl font-medium leading-[1.05] tracking-tight md:text-7xl">
+            <span className="italic">Let&apos;s talk.</span>
+          </h2>
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            I&apos;m looking for Associate Product Manager and Product Analyst opportunities,
+            especially in AI products and learning tech. Happy to walk through the case study.
+          </p>
 
-        <div className="mt-6">
-          <a
-            href="/M_Krishna_Product_APM_CV.pdf"
-            download="M_Krishna_Product_APM_CV.pdf"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium shadow-sm transition-all hover:-translate-y-0.5 hover:bg-secondary hover:shadow-md"
-          >
-            <Download className="size-4" />
-            Download CV
-          </a>
-        </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          {contactLinks.map((item) => {
-            const Icon = item.icon
+          <div className="mt-10">
+            <a
+              href="/M_Krishna_Product_APM_CV.pdf"
+              download="M_Krishna_Product_APM_CV.pdf"
+              className="group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground transition-all hover:bg-primary/90"
+            >
+              <Download className="size-4" />
+              Download CV
+            </a>
+          </div>
 
-            return (
-              <a
-                key={item.label}
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noreferrer" : undefined}
-                className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-foreground/30 hover:shadow-md dark:hover:shadow-foreground/5"
-              >
-                <span className="flex min-w-0 items-center gap-3">
-                  <Icon className="size-5 shrink-0 text-primary" />
-                  <span className="min-w-0">
-                    <span className="block text-xs uppercase tracking-[0.12em] text-muted-foreground">
-                      {item.label}
+          <div className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-3">
+            {contactLinks.map((item) => {
+              const Icon = item.icon
+
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noreferrer" : undefined}
+                  className="group relative flex items-center justify-between gap-3 bg-background p-8 transition-colors hover:bg-card"
+                >
+                  <HoverDot />
+                  <span className="flex min-w-0 items-center gap-4">
+                    <Icon className="size-5 shrink-0 text-primary" />
+                    <span className="min-w-0">
+                      <span className="block text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
+                        {item.label}
+                      </span>
+                      <span className="mt-1 block truncate text-base text-foreground transition-colors group-hover:text-primary">
+                        {item.value}
+                      </span>
                     </span>
-                    <span className="block truncate text-sm">{item.value}</span>
                   </span>
-                </span>
-                <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-            )
-          })}
+                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-primary" />
+                </a>
+              )
+            })}
+          </div>
         </div>
       </Reveal>
     </main>

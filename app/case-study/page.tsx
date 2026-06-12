@@ -17,38 +17,44 @@ export default function CaseStudyPage() {
       <ReadingProgress />
       <BackToTop />
       {/* Hero */}
-      <section className="border-b border-border bg-secondary/40">
-        <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
+      <section className="relative border-b border-border">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-1/2 top-1/3 size-[50vw] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+        </div>
+        <div className="mx-auto max-w-[1400px] px-6 pb-20 pt-40 md:px-10 md:pt-48">
+          <p className="inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.24em] text-primary">
+            <span className="h-px w-8 bg-primary" />
             Main Case Study | Language Learning / EdTech
           </p>
-          <h1 className="max-w-3xl text-balance font-serif text-4xl font-medium leading-[1.1] tracking-tight md:text-5xl">
-            Mistakes Review Feature for Airlearn
+          <h1 className="mt-8 max-w-5xl font-serif text-[clamp(48px,9vw,128px)] font-medium leading-[0.95] tracking-[-0.025em] text-foreground">
+            Mistakes Review Feature
+            <br />
+            <span className="italic">for Airlearn</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-8 max-w-2xl font-serif text-2xl leading-[1.35] tracking-tight text-muted-foreground md:text-3xl">
             Improving language-learning retention by helping learners revisit, retry, and correct
             their mistakes.
           </p>
 
-          <div className="mt-10 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {[
               { k: "Role", v: "Product thinking, user journey analysis, feature proposal" },
               { k: "Domain", v: "Language learning / EdTech" },
               { k: "Product area", v: "Learning retention, feedback loop, mistake correction" },
               { k: "Output", v: "MVP feature proposal, metrics, A/B test hypothesis" },
             ].map((item) => (
-              <div key={item.k} className="bg-card p-5">
-                <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+              <div key={item.k} className="flex flex-col justify-between bg-background p-6">
+                <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
                   {item.k}
                 </p>
-                <p className="mt-2 text-sm leading-snug text-foreground">{item.v}</p>
+                <p className="mt-6 text-sm leading-snug text-foreground">{item.v}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         {/* 1. Context */}
         <CaseSection number="1" title="Context" variant="problem">
           <p>
@@ -475,17 +481,18 @@ export default function CaseStudyPage() {
       </div>
 
       {/* Bottom CTA */}
-      <section className="border-t border-border bg-secondary/40">
-        <div className="mx-auto flex max-w-5xl flex-col items-start gap-4 px-6 py-12 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-md text-pretty text-muted-foreground">
-            Want to see the supporting AI and research work behind this thinking?
+      <section className="border-t border-border">
+        <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-8 px-6 py-20 sm:flex-row sm:items-center sm:justify-between md:px-10">
+          <p className="max-w-md font-serif text-2xl leading-[1.3] tracking-tight text-foreground md:text-3xl">
+            Want to see the supporting AI and research work behind this{" "}
+            <span className="italic text-primary">thinking?</span>
           </p>
           <Link
             href="/work"
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground transition-all hover:bg-primary/90"
           >
             View supporting work
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
       </section>

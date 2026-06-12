@@ -4,12 +4,16 @@ import { LinkedinIcon, GithubIcon } from "@/components/brand-icons"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="relative mt-24 border-t border-border bg-background">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-8 px-6 py-14 md:flex-row md:items-start md:justify-between md:px-10">
         <div>
-          <p className="font-serif text-base">M Krishna</p>
-          <p className="text-sm text-muted-foreground">APM | AI Products | Learning Tech</p>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="font-serif text-2xl font-medium tracking-tight text-foreground">
+            M Krishna
+          </p>
+          <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            APM | AI Products | Learning Tech
+          </p>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
             Open to APM & Product Analyst roles.{" "}
             <a
               href="mailto:krishbabu2004@gmail.com"
@@ -20,40 +24,57 @@ export function SiteFooter() {
             .
           </p>
         </div>
-        <div className="flex items-center gap-5 text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
           <a
             href="mailto:krishbabu2004@gmail.com"
-            className="flex items-center gap-2 text-sm transition-colors hover:text-foreground"
+            className="group flex items-center gap-2 text-sm uppercase tracking-[0.18em] transition-colors hover:text-primary"
           >
             <Mail className="size-4" />
             Email
+            <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-6" />
           </a>
           <a
             href="https://linkedin.com/in/m-krishna-krishna"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 text-sm transition-colors hover:text-foreground"
+            className="group flex items-center gap-2 text-sm uppercase tracking-[0.18em] transition-colors hover:text-primary"
           >
             <LinkedinIcon className="size-4" />
             LinkedIn
+            <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-6" />
           </a>
           <a
             href="https://github.com/Krishna2004M"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 text-sm transition-colors hover:text-foreground"
+            className="group flex items-center gap-2 text-sm uppercase tracking-[0.18em] transition-colors hover:text-primary"
           >
             <GithubIcon className="size-4" />
             GitHub
+            <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-6" />
           </a>
         </div>
       </div>
-      <div className="mx-auto max-w-5xl px-6 pb-6">
-        <p className="text-xs text-muted-foreground">
-          Copyright {new Date().getFullYear()} M Krishna - APM | AI Products | Learning Tech -{" "}
-          <Link href="/case-study" className="underline-offset-4 hover:underline">
+      <div className="border-t border-border">
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-6 py-5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between md:px-10">
+          <p>
+            Copyright {new Date().getFullYear()} M Krishna - APM | AI Products | Learning Tech
+          </p>
+          <Link
+            href="/case-study"
+            className="inline-flex items-center gap-2 transition-colors hover:text-primary"
+          >
+            <span className="size-1 rounded-full bg-primary animate-pulse-dot" />
             Read the main case study
           </Link>
+        </div>
+      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none select-none overflow-hidden border-t border-border py-10"
+      >
+        <p className="whitespace-nowrap font-serif text-[18vw] font-medium leading-none tracking-tighter text-foreground/[0.05]">
+          M&nbsp;KRISHNA · APM · AI · LEARNING&nbsp;TECH
         </p>
       </div>
     </footer>
