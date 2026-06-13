@@ -47,6 +47,7 @@ export default function HomePage() {
       <section className="relative min-h-screen border-b border-border">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-1/2 top-1/3 size-[60vw] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+          <div className="absolute right-[8%] top-32 h-36 w-56 rotate-6 border border-primary/20 bg-card/30 blur-[1px] backdrop-blur-2xl" />
           <div
             className="absolute inset-0 opacity-[0.05]"
             style={{
@@ -94,7 +95,7 @@ export default function HomePage() {
           <Reveal delay={400} className="mt-12 flex flex-wrap items-center gap-3">
             <Link
               href="/case-study"
-              className="group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground transition-all hover:bg-primary/90"
+              className="hover-pop group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90"
             >
               Read Main Case Study
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -110,7 +111,7 @@ export default function HomePage() {
                   target={external ? "_blank" : undefined}
                   rel={external ? "noreferrer" : undefined}
                   download={item.download}
-                  className="group inline-flex items-center gap-3 border border-border bg-transparent px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-foreground transition-all hover:border-primary hover:text-primary"
+                  className="hover-pop glass-surface group inline-flex items-center gap-3 border border-border px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-foreground hover:border-primary hover:text-primary"
                 >
                   <Icon className="size-4" />
                   {item.label}
@@ -129,17 +130,17 @@ export default function HomePage() {
             {Array.from({ length: 2 }).map((_, i) => (
               <span key={i} className="flex items-center">
                 <span className="px-8">Product Thinking</span>
-                <span className="text-primary px-8">·</span>
+                <span className="px-8 text-primary">/</span>
                 <span className="px-8 italic">AI Safety</span>
-                <span className="text-primary px-8">·</span>
+                <span className="px-8 text-primary">/</span>
                 <span className="px-8">Learning Outcomes</span>
-                <span className="text-primary px-8">·</span>
+                <span className="px-8 text-primary">/</span>
                 <span className="px-8 italic">Retention</span>
-                <span className="text-primary px-8">·</span>
+                <span className="px-8 text-primary">/</span>
                 <span className="px-8">User Journeys</span>
-                <span className="text-primary px-8">·</span>
+                <span className="px-8 text-primary">/</span>
                 <span className="px-8 italic">Evaluation</span>
-                <span className="text-primary px-8">·</span>
+                <span className="px-8 text-primary">/</span>
               </span>
             ))}
           </div>
@@ -156,7 +157,7 @@ export default function HomePage() {
           <Reveal delay={100}>
             <Link
               href="/case-study"
-              className="group relative mt-12 grid gap-10 border border-border bg-card p-8 transition-colors hover:border-primary md:grid-cols-12 md:gap-16 md:p-12 lg:p-16"
+              className="hover-pop glass-surface group relative mt-12 grid gap-10 border border-border p-8 hover:border-primary md:grid-cols-12 md:gap-16 md:p-12 lg:p-16"
             >
               <HoverDot />
 
@@ -238,7 +239,7 @@ export default function HomePage() {
                 delay={index === 0 ? 100 : index === 1 ? 200 : 300}
                 className="bg-background"
               >
-                <div className="group relative flex h-full flex-col gap-8 p-8 transition-colors hover:bg-card md:p-10">
+                <div className="hover-pop glass-surface group relative flex h-full flex-col gap-8 border border-transparent p-8 hover:border-primary/40 md:p-10">
                   <HoverDot />
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs text-primary">

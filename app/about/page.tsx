@@ -159,7 +159,7 @@ export default function AboutPage() {
               const Icon = c.icon
               return (
                 <Reveal key={c.t} delay={delays[i]} className="bg-background">
-                  <div className="group relative flex h-full flex-col gap-6 p-8 transition-colors hover:bg-card md:p-10">
+                  <div className="hover-pop glass-surface group relative flex h-full flex-col gap-6 border border-transparent p-8 hover:border-primary/40 md:p-10">
                     <HoverDot />
                     <div className="flex items-center justify-between">
                       <Icon className="size-5 text-primary" />
@@ -195,7 +195,7 @@ export default function AboutPage() {
                 delay={index === 0 ? 100 : index === 1 ? 200 : index === 2 ? 300 : 400}
                 className="bg-background"
               >
-                <div className="h-full p-8 transition-colors hover:bg-card md:p-10">
+                <div className="hover-pop glass-surface h-full border border-transparent p-8 hover:border-primary/40 md:p-10">
                   <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-primary">
                     {cat.label}
                   </p>
@@ -233,7 +233,7 @@ export default function AboutPage() {
             <a
               href="/M_Krishna_Product_APM_CV.pdf"
               download="M_Krishna_Product_APM_CV.pdf"
-              className="group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground transition-all hover:bg-primary/90"
+              className="hover-pop group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90"
             >
               <Download className="size-4" />
               Download CV
@@ -250,7 +250,7 @@ export default function AboutPage() {
                   href={item.href}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noreferrer" : undefined}
-                  className="group relative flex items-center justify-between gap-3 bg-background p-8 transition-colors hover:bg-card"
+                  className="hover-pop glass-surface group relative flex items-center justify-between gap-3 border border-transparent p-8 hover:border-primary/40"
                 >
                   <HoverDot />
                   <span className="flex min-w-0 items-center gap-4">

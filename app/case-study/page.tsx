@@ -310,7 +310,7 @@ export default function CaseStudyPage() {
               { k: "Engagement", v: "Review completion", pct: "52%", color: "bg-emerald-500" },
               { k: "Retention", v: "D7/D14 lift", pct: "38%", color: "bg-amber-500" },
             ].map((metric) => (
-              <div key={metric.k} className="rounded-xl border border-border bg-card p-4">
+              <div key={metric.k} className="hover-pop glass-surface rounded-xl border border-border p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                   {metric.k}
                 </p>
@@ -506,7 +506,7 @@ export default function CaseStudyPage() {
           </p>
           <Link
             href="/work"
-            className="group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground transition-all hover:bg-primary/90"
+            className="hover-pop group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90"
           >
             View supporting work
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />

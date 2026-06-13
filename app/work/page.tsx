@@ -169,7 +169,7 @@ export default function WorkPage() {
                   delay={idx === 0 ? 100 : idx === 1 ? 200 : 300}
                   className="bg-background"
                 >
-                  <div className="group relative grid gap-10 p-8 transition-colors hover:bg-card md:grid-cols-12 md:gap-16 md:p-12 lg:p-16">
+                  <div className="hover-pop glass-surface group relative grid gap-10 border border-transparent p-8 hover:border-primary/40 md:grid-cols-12 md:gap-16 md:p-12 lg:p-16">
                     <HoverDot />
                     <div className="md:col-span-4">
                       <span className="font-mono text-xs text-primary">{p.n}</span>
@@ -231,7 +231,7 @@ export default function WorkPage() {
           </p>
           <Link
             href="/case-study"
-            className="group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground transition-all hover:bg-primary/90"
+            className="hover-pop group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90"
           >
             Read the case study
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />

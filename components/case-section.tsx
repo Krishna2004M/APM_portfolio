@@ -30,7 +30,7 @@ export function CaseSection({
       )}
       id={`section-${number}`}
     >
-      <div className="grid gap-10 md:grid-cols-12">
+      <div className="hover-pop grid gap-10 md:grid-cols-12">
         <div className="md:col-span-4">
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-xs text-primary">
