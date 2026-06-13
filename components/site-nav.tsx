@@ -60,7 +60,7 @@ export function SiteNav() {
             <span className="font-serif text-base font-medium tracking-tight text-foreground">
               M Krishna
             </span>
-            <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
               APM | AI Products
             </span>
           </span>

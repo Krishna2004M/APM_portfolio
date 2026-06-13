@@ -304,6 +304,23 @@ export default function CaseStudyPage() {
         {/* 11. Metrics */}
         <CaseSection number="11" title="Metrics" variant="metrics">
           <p>How I&apos;d measure whether Mistakes Review is working:</p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              { k: "Activation", v: "Open rate", pct: "64%", color: "bg-primary" },
+              { k: "Engagement", v: "Review completion", pct: "52%", color: "bg-emerald-500" },
+              { k: "Retention", v: "D7/D14 lift", pct: "38%", color: "bg-amber-500" },
+            ].map((metric) => (
+              <div key={metric.k} className="rounded-xl border border-border bg-card p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                  {metric.k}
+                </p>
+                <p className="mt-1 font-medium text-foreground">{metric.v}</p>
+                <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary">
+                  <div className={`${metric.color} h-full animate-grow-bar rounded-full`} style={{ width: metric.pct }} />
+                </div>
+              </div>
+            ))}
+          </div>
           <div className="-mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
             <table className="w-full min-w-[640px] border-collapse text-sm">
               <thead>

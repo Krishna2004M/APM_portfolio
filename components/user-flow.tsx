@@ -27,12 +27,15 @@ export function UserFlow() {
                     : "border border-border bg-background px-4 py-2.5 text-sm text-foreground"
                 }
               >
+                <span className="mb-1 block font-mono text-[10px] text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 {step}
               </div>
               {i < steps.length - 1 && (
                 <>
-                  <ArrowRight className="hidden size-4 shrink-0 text-muted-foreground sm:block" />
-                  <ArrowDown className="size-4 shrink-0 text-muted-foreground sm:hidden" />
+                  <ArrowRight className="hidden size-4 shrink-0 text-primary sm:block" />
+                  <ArrowDown className="size-4 shrink-0 text-primary sm:hidden" />
                 </>
               )}
             </div>
