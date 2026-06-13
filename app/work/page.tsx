@@ -6,7 +6,7 @@ import { HoverDot } from "@/components/hover-dot"
 import { SectionLabel } from "@/components/section-label"
 
 export const metadata = {
-  title: "Supporting Work - M Krishna",
+  title: "Supporting Work | M Krishna",
   description:
     "Supporting AI product, AI safety, and NLP research work that grounds M Krishna's product thinking.",
 }
@@ -48,11 +48,11 @@ const projects = [
       },
       {
         label: "Solution",
-        body: "MONAI U-Net segmentation of MRI/CT scans paired with GenAI radiologist-style reports - to assist, not replace, the clinician's judgement.",
+        body: "MONAI U-Net segmentation of MRI/CT scans paired with GenAI radiologist-style reports, designed to assist, not replace, the clinician's judgement.",
       },
       {
         label: "User flow",
-        body: "Upload scan - MONAI U-Net detects and highlights region - GenAI draft report generated - clinician reviews, edits, and confirms.",
+        body: "Upload scan, MONAI U-Net detects and highlights region, GenAI draft report generated, clinician reviews, edits, and confirms.",
       },
       {
         label: "Evaluation",
@@ -60,7 +60,7 @@ const projects = [
       },
       {
         label: "Product lesson",
-        body: "In high-stakes domains, the product must build trust and keep a human in the loop - accuracy alone is not enough.",
+        body: "In high-stakes domains, the product must build trust and keep a human in the loop. Accuracy alone is not enough.",
       },
     ],
     tags: ["MONAI U-Net", "GenAI Reports", "Streamlit", "Dice Score"],
@@ -78,7 +78,7 @@ const projects = [
       },
       {
         label: "Role",
-        body: "Red-teamer - designing adversarial prompts and evaluating model responses for safety, bias, and harmful-output patterns.",
+        body: "Red-teamer designing adversarial prompts and evaluating model responses for safety, bias, and harmful-output patterns.",
       },
       {
         label: "What I evaluated",
@@ -108,7 +108,7 @@ const projects = [
       },
       {
         label: "Why it matters",
-        body: "Multilingual users are a huge, underserved audience - especially relevant for a language-learning product serving diverse learners.",
+        body: "Multilingual users are a huge, underserved audience, especially relevant for a language-learning product serving diverse learners.",
       },
       {
         label: "Approach",
@@ -149,8 +149,8 @@ export default function WorkPage() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-10 max-w-2xl font-serif text-2xl leading-[1.4] tracking-tight text-muted-foreground md:text-3xl">
-              These projects support the main case study. Each is framed as a product story - the
-              problem, the user, and what I learned - rather than as a list of technical achievements.
+              These projects support the main case study. Each is framed as a product story: the
+              problem, the user, and what I learned, rather than as a list of technical achievements.
             </p>
           </Reveal>
         </div>

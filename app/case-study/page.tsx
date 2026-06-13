@@ -6,7 +6,7 @@ import { ReadingProgress } from "@/components/reading-progress"
 import { BackToTop } from "@/components/back-to-top"
 
 export const metadata = {
-  title: "Mistakes Review Feature for Airlearn - Case Study | M Krishna",
+  title: "Mistakes Review Feature for Airlearn | Case Study | M Krishna",
   description:
     "A product case study on improving language-learning retention through personalized mistake review, spaced repetition, and feedback loops.",
 }
@@ -63,7 +63,7 @@ export default function CaseStudyPage() {
             quality, content consistency, and release readiness before modules go live.
           </p>
           <p>
-            This means I sit close to the learner experience - looking at how a lesson is sequenced,
+            This means I sit close to the learner experience, looking at how a lesson is sequenced,
             how feedback is worded, and whether a module is genuinely ready to ship. That vantage
             point is what led me to the problem behind this case study.
           </p>

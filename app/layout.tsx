@@ -19,11 +19,11 @@ const newsreader = Newsreader({
 })
 
 export const metadata: Metadata = {
-  title: 'M Krishna - APM | AI Products | Learning Tech',
+  title: 'M Krishna | APM | AI Products | Learning Tech',
   description:
     'Product portfolio of M Krishna, an Associate Product Manager focused on AI-enabled language learning with hands-on product-operations experience. Featuring the Mistakes Review case study for Airlearn.',
   openGraph: {
-    title: 'M Krishna - APM | AI Products | Learning Tech',
+    title: 'M Krishna | APM | AI Products | Learning Tech',
     description:
       'Product portfolio of M Krishna, an Associate Product Manager focused on AI-enabled language learning with hands-on product-operations experience.',
     url: 'https://v0-mkrishna.vercel.app',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: 'https://v0-mkrishna.vercel.app/icon.svg',
         width: 1200,
         height: 630,
-        alt: 'M Krishna - APM Portfolio',
+        alt: 'M Krishna APM Portfolio',
       },
     ],
     locale: 'en_US',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'M Krishna - APM | AI Products | Learning Tech',
+    title: 'M Krishna | APM | AI Products | Learning Tech',
     description:
       'Product portfolio of M Krishna, an Associate Product Manager focused on AI-enabled language learning with hands-on product-operations experience.',
     images: ['https://v0-mkrishna.vercel.app/icon.svg'],

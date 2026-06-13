@@ -16,7 +16,7 @@ import { HoverDot } from "@/components/hover-dot"
 import { SectionLabel } from "@/components/section-label"
 
 export const metadata = {
-  title: "Skills & Contact - M Krishna",
+  title: "Skills & Contact | M Krishna",
   description: "PM competencies and contact details for M Krishna.",
 }
 
@@ -37,7 +37,7 @@ const competencies: Array<{
   },
   {
     t: "I understand learning-product quality",
-    d: "Hands-on QC of lesson flows, scripts, and modules - knowing what release ready really means.",
+    d: "Hands-on QC of lesson flows, scripts, and modules, knowing what release ready really means.",
     icon: GraduationCap,
   },
   {

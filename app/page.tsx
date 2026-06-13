@@ -10,17 +10,17 @@ const proofCards = [
   {
     tag: "Product Operations",
     title: "Airlearn Product Operations",
-    desc: "Learning-product QC and release readiness - reviewing lesson flows, scripts, and modules before they go live.",
+    desc: "Learning-product QC and release readiness, reviewing lesson flows, scripts, and modules before they go live.",
   },
   {
     tag: "AI Safety",
     title: "Google Adversarial Nibbler",
-    desc: "AI safety and model-output evaluation - probing generative models for harmful and unsafe outputs.",
+    desc: "AI safety and model-output evaluation, probing generative models for harmful and unsafe outputs.",
   },
   {
     tag: "AI Projects",
     title: "AI Product Projects",
-    desc: "Brain tumor detection and NLP research - applying AI to real problems with a user-and-impact lens.",
+    desc: "Brain tumor detection and NLP research, applying AI to real problems with a user-and-impact lens.",
   },
 ]
 
