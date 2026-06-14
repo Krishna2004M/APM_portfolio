@@ -7,11 +7,11 @@ type Variant = "inline" | "primary" | "ghost"
 
 const variantClass: Record<Variant, string> = {
   inline:
-    "group/al inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground transition-colors hover:text-primary",
+    "hover-pop group/al inline-flex items-center gap-2 text-sm font-medium tracking-wide text-foreground hover:text-primary",
   primary:
-    "group/al inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] text-primary-foreground transition-all hover:bg-primary/90",
+    "hover-pop group/al inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] text-primary-foreground hover:bg-primary/90",
   ghost:
-    "group/al inline-flex items-center gap-3 border border-border bg-transparent px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] text-foreground transition-all hover:border-primary hover:text-primary",
+    "hover-pop group/al inline-flex items-center gap-3 border border-border bg-transparent px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] text-foreground hover:border-primary hover:text-primary",
 }
 
 export function ArrowLink({

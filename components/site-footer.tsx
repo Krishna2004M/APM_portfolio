@@ -27,31 +27,28 @@ export function SiteFooter() {
         <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
           <a
             href="mailto:krishbabu2004@gmail.com"
-            className="group flex items-center gap-2 text-sm uppercase tracking-[0.18em] transition-colors hover:text-primary"
+            className="hover-pop group flex items-center gap-2 text-sm uppercase tracking-[0.18em] hover:text-primary"
           >
             <Mail className="size-4" />
             Email
-            <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-6" />
           </a>
           <a
             href="https://linkedin.com/in/m-krishna-krishna"
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-2 text-sm uppercase tracking-[0.18em] transition-colors hover:text-primary"
+            className="hover-pop group flex items-center gap-2 text-sm uppercase tracking-[0.18em] hover:text-primary"
           >
             <LinkedinIcon className="size-4" />
             LinkedIn
-            <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-6" />
           </a>
           <a
             href="https://github.com/Krishna2004M"
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-2 text-sm uppercase tracking-[0.18em] transition-colors hover:text-primary"
+            className="hover-pop group flex items-center gap-2 text-sm uppercase tracking-[0.18em] hover:text-primary"
           >
             <GithubIcon className="size-4" />
             GitHub
-            <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-6" />
           </a>
         </div>
       </div>
@@ -62,7 +59,7 @@ export function SiteFooter() {
           </p>
           <Link
             href="/case-study"
-            className="inline-flex items-center gap-2 transition-colors hover:text-primary"
+            className="hover-pop inline-flex items-center gap-2 hover:text-primary"
           >
             <span className="size-1 rounded-full bg-primary animate-pulse-dot" />
             Read the main case study

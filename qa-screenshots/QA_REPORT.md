@@ -11,6 +11,9 @@ Date: June 14, 2026
 5. Homepage, 1440px desktop, light mode: healthy
 6. Supporting work, 1440px desktop, dark mode: healthy
 7. Skills and contact, 1440px desktop, dark mode: healthy
+8. Case-study hero, 1440px desktop after interaction polish: healthy
+9. Case-study hero, 390px mobile emulation after interaction polish: healthy
+10. Case-study panels, 1440px desktop hover state: healthy
 
 ## Fixes Verified
 
@@ -22,6 +25,10 @@ Date: June 14, 2026
 - No em dash, en dash, mojibake bullet, or `mdash` entity remains in visible source copy.
 - Light and dark themes retain clear foreground/background contrast.
 - Main navigation, theme toggle, cards, buttons, and metadata grids remain aligned.
+- Shared hover motion is consistent across case-study headings, panels, links, and buttons.
+- Hover transforms run only on fine pointers; keyboard focus receives a visible ring and shadow.
+- Decorative horizontal rules were removed from section labels, the case-study label, and action links.
+- True 390px device emulation reports a 390px document width with no page-level horizontal scrolling.
 
 ## Accessibility Notes
 

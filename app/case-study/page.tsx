@@ -22,8 +22,7 @@ export default function CaseStudyPage() {
           <div className="absolute left-1/2 top-1/3 size-[50vw] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
         </div>
         <div className="mx-auto w-full max-w-[1400px] px-6 pb-20 pt-32 sm:pt-36 md:px-10 md:pt-48">
-          <p className="inline-flex max-w-full flex-wrap items-center gap-3 text-[11px] font-medium uppercase leading-relaxed tracking-[0.24em] text-primary">
-            <span className="h-px w-8 bg-primary" />
+          <p className="inline-flex max-w-full flex-wrap items-center text-[11px] font-medium uppercase leading-relaxed tracking-[0.24em] text-primary">
             Main Case Study
           </p>
           <h1 className="mt-8 max-w-full text-balance font-serif text-[clamp(42px,9vw,128px)] font-medium leading-[0.95] tracking-[-0.025em] text-foreground">
@@ -43,7 +42,7 @@ export default function CaseStudyPage() {
               { k: "Product area", v: "Learning retention, feedback loop, mistake correction" },
               { k: "Output", v: "MVP feature proposal, metrics, A/B test hypothesis" },
             ].map((item) => (
-              <div key={item.k} className="flex min-w-0 flex-col justify-between bg-background p-6">
+              <div key={item.k} className="case-panel flex min-w-0 flex-col justify-between bg-background p-6">
                 <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
                   {item.k}
                 </p>
@@ -75,14 +74,14 @@ export default function CaseStudyPage() {
             Learners make mistakes while learning a language, but if those mistakes are not saved,
             reviewed, and repeated at the right time, the learning loop becomes incomplete.
           </p>
-          <div className="rounded-xl border border-border bg-secondary/60 p-5">
+          <div className="case-panel rounded-xl border border-border bg-secondary/60 p-5">
             <p className="font-medium text-foreground">Current learning issue</p>
             <p className="mt-2">
               Lesson completed does not always mean concept mastered. If a learner gets a word,
               grammar pattern, or sentence wrong, they need a structured way to revisit it.
             </p>
           </div>
-          <div className="rounded-xl border border-primary/25 bg-accent p-5">
+          <div className="case-panel rounded-xl border border-primary/25 bg-accent p-5">
             <p className="font-medium text-accent-foreground">Problem statement</p>
             <p className="mt-2 text-accent-foreground/90">
               How might we help language learners turn their mistakes into a personalized review
@@ -105,7 +104,7 @@ export default function CaseStudyPage() {
             ].map((item) => (
               <li
                 key={item}
-                className="flex items-center gap-2.5 rounded-lg border border-border bg-card px-4 py-3 text-foreground"
+                className="case-panel flex items-center gap-2.5 rounded-lg border border-border bg-card px-4 py-3 text-foreground"
               >
                 <Check className="size-4 shrink-0 text-primary" />
                 <span className="text-sm">{item}</span>
@@ -122,7 +121,7 @@ export default function CaseStudyPage() {
             learner understands and remembers the content. This made me think beyond lesson
             completion and focus on what happens after a learner makes a mistake.
           </p>
-          <div className="flex items-start gap-3 rounded-xl border border-border bg-secondary/60 p-5">
+          <div className="case-panel flex items-start gap-3 rounded-xl border border-border bg-secondary/60 p-5">
             <Lightbulb className="mt-0.5 size-5 shrink-0 text-primary" />
             <div>
               <p className="font-medium text-foreground">Key insight</p>
@@ -155,7 +154,7 @@ export default function CaseStudyPage() {
                 d: "Correcting mistakes helps learners understand what they misunderstood.",
               },
             ].map((r) => (
-              <div key={r.t} className="rounded-xl border border-border bg-card p-5">
+              <div key={r.t} className="case-panel rounded-xl border border-border bg-card p-5">
                 <p className="font-medium text-foreground">{r.t}</p>
                 <p className="mt-1.5 text-sm">{r.d}</p>
               </div>
@@ -227,7 +226,7 @@ export default function CaseStudyPage() {
               </tbody>
             </table>
           </div>
-          <p className="rounded-lg bg-secondary/60 px-4 py-3 text-foreground">
+          <p className="case-panel rounded-lg border border-transparent bg-secondary/60 px-4 py-3 text-foreground">
             <span className="font-medium">Opportunity:</span> Airlearn can build a lightweight,
             personalized Mistakes Review system connected to its existing lesson structure.
           </p>
@@ -235,7 +234,7 @@ export default function CaseStudyPage() {
 
         {/* 7. Feature proposal */}
         <CaseSection number="7" title="Feature proposal" variant="solution">
-          <div className="rounded-xl border border-primary/25 bg-accent p-6">
+          <div className="case-panel rounded-xl border border-primary/25 bg-accent p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-accent-foreground">
               Feature name
             </p>
@@ -258,7 +257,7 @@ export default function CaseStudyPage() {
         <CaseSection number="9" title="MVP scope" variant="solution">
           <p>The first version stays deliberately lean:</p>
           <div className="grid gap-5 md:grid-cols-2">
-            <div className="rounded-xl border border-border bg-card p-5">
+            <div className="case-panel rounded-xl border border-border bg-card p-5">
               <p className="mb-3 flex items-center gap-2 font-medium text-foreground">
                 <Check className="size-4 text-primary" /> In scope (v1)
               </p>
@@ -279,7 +278,7 @@ export default function CaseStudyPage() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-xl border border-border bg-secondary/50 p-5">
+            <div className="case-panel rounded-xl border border-border bg-secondary/50 p-5">
               <p className="mb-3 flex items-center gap-2 font-medium text-foreground">
                 <X className="size-4 text-muted-foreground" /> Out of scope (for MVP)
               </p>
@@ -310,7 +309,7 @@ export default function CaseStudyPage() {
               { k: "Engagement", v: "Review completion", pct: "52%", color: "bg-emerald-500" },
               { k: "Retention", v: "D7/D14 lift", pct: "38%", color: "bg-amber-500" },
             ].map((metric) => (
-              <div key={metric.k} className="hover-pop glass-surface rounded-xl border border-border p-4">
+              <div key={metric.k} className="case-panel glass-surface rounded-xl border border-border p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                   {metric.k}
                 </p>
@@ -394,7 +393,7 @@ export default function CaseStudyPage() {
             ].map((i) => (
               <li
                 key={i}
-                className="flex items-start gap-2.5 rounded-lg border border-border bg-card px-4 py-3 text-foreground"
+                className="case-panel flex items-start gap-2.5 rounded-lg border border-border bg-card px-4 py-3 text-foreground"
               >
                 <ArrowRight className="mt-0.5 size-4 shrink-0 text-primary" />
                 <span className="text-sm">{i}</span>
@@ -415,7 +414,7 @@ export default function CaseStudyPage() {
             ].map((i) => (
               <li
                 key={i}
-                className="flex items-start gap-2.5 rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground"
+                className="case-panel flex items-start gap-2.5 rounded-lg border border-border bg-secondary/50 px-4 py-3 text-foreground"
               >
                 <AlertTriangle className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
                 <span className="text-sm">{i}</span>
@@ -426,7 +425,7 @@ export default function CaseStudyPage() {
 
         {/* 14. A/B test */}
         <CaseSection number="14" title="A/B test hypothesis" variant="metrics">
-          <div className="rounded-xl border border-primary/25 bg-accent p-6 text-accent-foreground/90">
+          <div className="case-panel rounded-xl border border-primary/25 bg-accent p-6 text-accent-foreground/90">
             <p className="leading-relaxed">
               <span className="font-medium text-foreground">If</span> learners who make mistakes are
               shown a personalized Mistakes Review entry point after lesson completion,{" "}
@@ -437,7 +436,7 @@ export default function CaseStudyPage() {
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            <div className="rounded-xl border border-border bg-card p-5">
+            <div className="case-panel rounded-xl border border-border bg-card p-5">
               <p className="font-medium text-foreground">Test setup</p>
               <ul className="mt-2 space-y-1.5 text-sm">
                 <li>
@@ -449,7 +448,7 @@ export default function CaseStudyPage() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-xl border border-border bg-card p-5">
+            <div className="case-panel rounded-xl border border-border bg-card p-5">
               <p className="font-medium text-foreground">Success metrics</p>
               <ul className="mt-2 space-y-1.5 text-sm">
                 {[
@@ -489,7 +488,7 @@ export default function CaseStudyPage() {
 
         {/* 16. Takeaway */}
         <CaseSection number="16" title="Product takeaway">
-          <p className="rounded-xl border border-border bg-secondary/60 p-6 text-foreground">
+          <p className="case-panel rounded-xl border border-border bg-secondary/60 p-6 text-foreground">
             This case study shows that I can observe workflow gaps, convert them into product
             problems, use research-backed thinking, compare competitors, define MVP scope, choose
             metrics, and think through trade-offs.

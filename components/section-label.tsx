@@ -13,17 +13,11 @@ export function SectionLabel({
   return (
     <span
       className={cn(
-        "inline-flex max-w-full flex-wrap items-center gap-3 text-[11px] font-medium uppercase leading-relaxed tracking-[0.24em]",
+        "inline-flex max-w-full flex-wrap items-center text-[11px] font-medium uppercase leading-relaxed tracking-[0.24em]",
         accent ? "text-primary" : "text-muted-foreground",
         className,
       )}
     >
-      <span
-        className={cn(
-          "inline-block h-px w-8",
-          accent ? "bg-primary" : "bg-muted-foreground/40",
-        )}
-      />
       {children}
     </span>
   )

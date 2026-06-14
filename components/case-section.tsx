@@ -23,7 +23,7 @@ export function CaseSection({
       id={`section-${number}`}
     >
       <div className="grid gap-7 md:grid-cols-12 md:gap-10">
-        <div className="md:col-span-4">
+        <div className="heading-pop md:col-span-4">
           <div className="flex items-center gap-3">
             <span className="flex size-7 items-center justify-center rounded-full border border-primary/35 bg-primary/10 font-mono text-[11px] text-primary">
               {number.padStart(2, "0")}

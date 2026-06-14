@@ -188,7 +188,6 @@ export default function HomePage() {
                 </div>
                 <div className="mt-10 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-foreground transition-colors group-hover:text-primary">
                   <span>View Case Study</span>
-                  <span className="h-px w-10 bg-foreground transition-all duration-300 group-hover:w-16 group-hover:bg-primary" />
                   <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </div>
@@ -261,10 +260,9 @@ export default function HomePage() {
           <Reveal className="mt-10">
             <Link
               href="/work"
-              className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-foreground transition-colors hover:text-primary"
+              className="hover-pop group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-foreground hover:text-primary"
             >
               See supporting work
-              <span className="h-px w-10 bg-foreground transition-all duration-300 group-hover:w-16 group-hover:bg-primary" />
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Link>
           </Reveal>
