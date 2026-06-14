@@ -62,7 +62,7 @@ export function SiteNav() {
               M Krishna
             </span>
             <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              APM | AI Products
+              APM, AI Products
             </span>
           </span>
         </Link>

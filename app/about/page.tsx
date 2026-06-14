@@ -16,7 +16,7 @@ import { HoverDot } from "@/components/hover-dot"
 import { SectionLabel } from "@/components/section-label"
 
 export const metadata = {
-  title: "Skills & Contact | M Krishna",
+  title: "Skills and Contact, M Krishna",
   description: "PM competencies and contact details for M Krishna.",
 }
 

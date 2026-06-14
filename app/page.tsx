@@ -63,7 +63,7 @@ export default function HomePage() {
             <SectionLabel accent>
               <span className="flex items-center gap-3">
                 <span className="size-1.5 rounded-full bg-primary animate-pulse-dot" />
-                Associate Product Manager | Product Analyst
+                Associate Product Manager and Product Analyst
               </span>
             </SectionLabel>
           </Reveal>
@@ -74,7 +74,7 @@ export default function HomePage() {
                 M <span className="italic">Krishna</span>
               </h1>
               <p className="mt-6 text-lg font-medium uppercase tracking-[0.24em] text-primary md:text-xl">
-                APM | AI Products | Learning Tech
+                APM, AI Products, Learning Tech
               </p>
             </Reveal>
             <Reveal delay={200} className="md:col-span-3 md:flex md:justify-end">
@@ -163,7 +163,7 @@ export default function HomePage() {
 
               <div className="md:col-span-7">
                 <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                  Language Learning | EdTech
+                  Language Learning and EdTech
                 </p>
                 <h2 className="mt-6 font-serif text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl">
                   Mistakes Review Feature
@@ -196,7 +196,7 @@ export default function HomePage() {
               <div className="grid grid-cols-2 gap-px border border-border bg-border md:col-span-5 md:self-stretch">
                 {[
                   { k: "Role", v: "Product thinking & feature proposal" },
-                  { k: "Domain", v: "Language learning / EdTech" },
+                  { k: "Domain", v: "Language learning and EdTech" },
                   { k: "Focus", v: "Retention & feedback loops" },
                   { k: "Output", v: "MVP scope, metrics, A/B hypothesis" },
                 ].map((item) => (

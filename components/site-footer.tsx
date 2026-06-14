@@ -11,7 +11,7 @@ export function SiteFooter() {
             M Krishna
           </p>
           <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-            APM | AI Products | Learning Tech
+            APM, AI Products, Learning Tech
           </p>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
             Open to APM & Product Analyst roles.{" "}
@@ -58,7 +58,7 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-6 py-5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between md:px-10">
           <p>
-            Copyright {new Date().getFullYear()} M Krishna | APM | AI Products | Learning Tech
+            Copyright {new Date().getFullYear()} M Krishna, APM, AI Products, Learning Tech
           </p>
           <Link
             href="/case-study"
@@ -74,7 +74,7 @@ export function SiteFooter() {
         className="pointer-events-none select-none overflow-hidden border-t border-border py-10"
       >
         <p className="whitespace-nowrap font-serif text-[18vw] font-medium leading-none tracking-tighter text-foreground/[0.05]">
-          M&nbsp;KRISHNA / APM / AI / LEARNING&nbsp;TECH
+          M&nbsp;KRISHNA APM AI LEARNING&nbsp;TECH
         </p>
       </div>
     </footer>

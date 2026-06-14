@@ -6,7 +6,7 @@ import { ReadingProgress } from "@/components/reading-progress"
 import { BackToTop } from "@/components/back-to-top"
 
 export const metadata = {
-  title: "Mistakes Review Feature for Airlearn | Case Study | M Krishna",
+  title: "Mistakes Review Feature for Airlearn, Case Study, M Krishna",
   description:
     "A product case study on improving language-learning retention through personalized mistake review, spaced repetition, and feedback loops.",
 }
@@ -24,7 +24,7 @@ export default function CaseStudyPage() {
         <div className="mx-auto max-w-[1400px] px-6 pb-20 pt-40 md:px-10 md:pt-48">
           <p className="inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.24em] text-primary">
             <span className="h-px w-8 bg-primary" />
-            Main Case Study | Language Learning / EdTech
+            Main Case Study, Language Learning and EdTech
           </p>
           <h1 className="mt-8 max-w-5xl font-serif text-[clamp(48px,9vw,128px)] font-medium leading-[0.95] tracking-[-0.025em] text-foreground">
             Mistakes Review Feature
@@ -39,7 +39,7 @@ export default function CaseStudyPage() {
           <div className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {[
               { k: "Role", v: "Product thinking, user journey analysis, feature proposal" },
-              { k: "Domain", v: "Language learning / EdTech" },
+              { k: "Domain", v: "Language learning and EdTech" },
               { k: "Product area", v: "Learning retention, feedback loop, mistake correction" },
               { k: "Output", v: "MVP feature proposal, metrics, A/B test hypothesis" },
             ].map((item) => (
@@ -360,7 +360,7 @@ export default function CaseStudyPage() {
                   },
                   {
                     c: "Retention",
-                    m: "D7 / D14 retention of Mistakes Review users",
+                    m: "D7 and D14 retention of Mistakes Review users",
                     w: "Connects the feature to the core business goal.",
                   },
                   {
@@ -386,7 +386,7 @@ export default function CaseStudyPage() {
           <ul className="grid gap-3 sm:grid-cols-2">
             {[
               "Directly improves the learning loop",
-              "Uses existing mistake / question data",
+              "Uses existing mistake and question data",
               "Easier MVP than a full AI tutor",
               "Strong connection to retention",
               "Can be tested quickly",
@@ -470,7 +470,7 @@ export default function CaseStudyPage() {
         <CaseSection number="15" title="What I'd do next">
           <ol className="space-y-3">
             {[
-              "Test with one course / language first",
+              "Test with one course and language first",
               "Interview learners who repeat mistakes",
               "Track the most common mistake types",
               "Improve explanation quality",

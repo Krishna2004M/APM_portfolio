@@ -4,7 +4,7 @@ const steps = [
   "Learner attempts lesson",
   "Gets answer wrong",
   "Mistake saved",
-  "Grouped by word / grammar / concept",
+  "Grouped by word, grammar, and concept",
   "Learner opens Mistakes Review",
   "Learner retries",
   "Gets explanation",

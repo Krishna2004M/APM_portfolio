@@ -6,7 +6,7 @@ import { HoverDot } from "@/components/hover-dot"
 import { SectionLabel } from "@/components/section-label"
 
 export const metadata = {
-  title: "Supporting Work | M Krishna",
+  title: "Supporting Work, M Krishna",
   description:
     "Supporting AI product, AI safety, and NLP research work that grounds M Krishna's product thinking.",
 }
@@ -35,7 +35,7 @@ const projects = [
     n: "01",
     icon: Microscope,
     category: "AI Product",
-    badge: "Provisional Patent Filed | Nov 2025",
+    badge: "Provisional Patent Filed, Nov 2025",
     title: "Brain Tumor Detection & Clinical Report Generator",
     fields: [
       {
@@ -69,7 +69,7 @@ const projects = [
     n: "02",
     icon: ShieldAlert,
     category: "AI Safety",
-    badge: "~150 selected from 7,000+ applicants | Jan 2025",
+    badge: "~150 selected from 7,000+ applicants, Jan 2025",
     title: "Google Adversarial Nibbler",
     fields: [
       {
@@ -99,7 +99,7 @@ const projects = [
     n: "03",
     icon: Languages,
     category: "NLP Research",
-    badge: "Published & Presented | Dec 2024",
+    badge: "Published and Presented, Dec 2024",
     title: "Code-Mixing & Code-Switching Detection",
     fields: [
       {
@@ -122,8 +122,8 @@ const projects = [
     tags: [
       "91.5% accuracy (LSTM)",
       "International conference",
-      "English | Hindi | Tamil",
-      "TF-IDF | FastText",
+      "English, Hindi, Tamil",
+      "TF-IDF, FastText",
     ],
   },
 ]
