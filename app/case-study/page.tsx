@@ -17,21 +17,21 @@ export default function CaseStudyPage() {
       <ReadingProgress />
       <BackToTop />
       {/* Hero */}
-      <section className="relative border-b border-border">
+      <section className="relative overflow-hidden border-b border-border">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-1/2 top-1/3 size-[50vw] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
         </div>
-        <div className="mx-auto max-w-[1400px] px-6 pb-20 pt-40 md:px-10 md:pt-48">
-          <p className="inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.24em] text-primary">
+        <div className="mx-auto w-full max-w-[1400px] px-6 pb-20 pt-32 sm:pt-36 md:px-10 md:pt-48">
+          <p className="inline-flex max-w-full flex-wrap items-center gap-3 text-[11px] font-medium uppercase leading-relaxed tracking-[0.24em] text-primary">
             <span className="h-px w-8 bg-primary" />
-            Main Case Study, Language Learning and EdTech
+            Main Case Study
           </p>
-          <h1 className="mt-8 max-w-5xl font-serif text-[clamp(48px,9vw,128px)] font-medium leading-[0.95] tracking-[-0.025em] text-foreground">
+          <h1 className="mt-8 max-w-full text-balance font-serif text-[clamp(42px,9vw,128px)] font-medium leading-[0.95] tracking-[-0.025em] text-foreground">
             Mistakes Review Feature
             <br />
             <span className="italic">for Airlearn</span>
           </h1>
-          <p className="mt-8 max-w-2xl font-serif text-2xl leading-[1.35] tracking-tight text-muted-foreground md:text-3xl">
+          <p className="mt-8 max-w-2xl text-pretty font-serif text-xl leading-[1.45] tracking-tight text-muted-foreground sm:text-2xl md:text-3xl">
             Improving language-learning retention by helping learners revisit, retry, and correct
             their mistakes.
           </p>
@@ -43,11 +43,11 @@ export default function CaseStudyPage() {
               { k: "Product area", v: "Learning retention, feedback loop, mistake correction" },
               { k: "Output", v: "MVP feature proposal, metrics, A/B test hypothesis" },
             ].map((item) => (
-              <div key={item.k} className="flex flex-col justify-between bg-background p-6">
+              <div key={item.k} className="flex min-w-0 flex-col justify-between bg-background p-6">
                 <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
                   {item.k}
                 </p>
-                <p className="mt-6 text-sm leading-snug text-foreground">{item.v}</p>
+                <p className="mt-6 break-words text-sm leading-snug text-foreground">{item.v}</p>
               </div>
             ))}
           </div>

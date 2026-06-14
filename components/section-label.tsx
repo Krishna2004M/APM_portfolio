@@ -13,7 +13,7 @@ export function SectionLabel({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.24em]",
+        "inline-flex max-w-full flex-wrap items-center gap-3 text-[11px] font-medium uppercase leading-relaxed tracking-[0.24em]",
         accent ? "text-primary" : "text-muted-foreground",
         className,
       )}

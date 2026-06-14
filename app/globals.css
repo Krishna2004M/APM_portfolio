@@ -113,10 +113,14 @@
   }
   html {
     @apply font-sans;
+    max-width: 100%;
+    overflow-x: clip;
   }
   body {
     @apply bg-background text-foreground antialiased;
     min-height: 100vh;
+    max-width: 100%;
+    overflow-x: clip;
     background-image:
       radial-gradient(circle at 18% 12%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 28rem),
       radial-gradient(circle at 78% 18%, color-mix(in oklab, var(--foreground) 7%, transparent), transparent 24rem),

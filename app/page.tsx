@@ -44,7 +44,7 @@ export default function HomePage() {
   return (
     <main className="overflow-hidden">
       {/* HERO */}
-      <section className="relative min-h-screen border-b border-border">
+      <section className="relative min-h-screen overflow-hidden border-b border-border">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-1/2 top-1/3 size-[60vw] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
           <div className="absolute right-[8%] top-32 h-36 w-56 rotate-6 border border-primary/20 bg-card/30 blur-[1px] backdrop-blur-2xl" />
@@ -58,22 +58,22 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="mx-auto max-w-[1400px] px-6 pb-24 pt-40 md:px-10 md:pt-48">
+        <div className="mx-auto w-full max-w-[1400px] px-6 pb-24 pt-32 sm:pt-36 md:px-10 md:pt-48">
           <Reveal>
             <SectionLabel accent>
-              <span className="flex items-center gap-3">
+              <span className="flex max-w-full flex-wrap items-center gap-3 leading-relaxed">
                 <span className="size-1.5 rounded-full bg-primary animate-pulse-dot" />
                 Associate Product Manager and Product Analyst
               </span>
             </SectionLabel>
           </Reveal>
 
-          <div className="mt-10 grid items-end gap-10 md:grid-cols-12">
-            <Reveal delay={100} className="md:col-span-9">
-              <h1 className="font-serif text-[clamp(64px,13vw,200px)] font-medium leading-[0.9] tracking-[-0.03em] text-foreground">
+          <div className="mt-10 grid min-w-0 items-end gap-10 md:grid-cols-12">
+            <Reveal delay={100} className="min-w-0 md:col-span-9">
+              <h1 className="max-w-full text-balance font-serif text-[clamp(56px,13vw,200px)] font-medium leading-[0.9] tracking-[-0.03em] text-foreground">
                 M <span className="italic">Krishna</span>
               </h1>
-              <p className="mt-6 text-lg font-medium uppercase tracking-[0.24em] text-primary md:text-xl">
+              <p className="mt-6 max-w-full text-balance text-base font-medium uppercase leading-relaxed tracking-[0.18em] text-primary sm:text-lg sm:tracking-[0.24em] md:text-xl">
                 APM, AI Products, Learning Tech
               </p>
             </Reveal>
@@ -84,8 +84,8 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <Reveal delay={300} className="mt-16 grid gap-10 md:grid-cols-12">
-            <p className="font-serif text-2xl leading-[1.35] tracking-tight text-foreground md:col-span-8 md:text-3xl">
+          <Reveal delay={300} className="mt-14 grid min-w-0 gap-10 md:mt-16 md:grid-cols-12">
+            <p className="min-w-0 max-w-full text-pretty font-serif text-xl leading-[1.45] tracking-tight text-foreground sm:text-2xl md:col-span-8 md:text-3xl">
               Associate Product Manager focused on AI-enabled language learning, with hands-on
               product-operations experience. I review learner flows, Figma lesson modules, scripts,
               content quality, and release readiness to improve product experience.
