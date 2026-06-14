@@ -6,6 +6,7 @@ import './globals.css'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { ThemeProvider } from '@/components/theme-provider'
+import { PortfolioAssistant } from '@/components/portfolio-assistant'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({
@@ -101,6 +102,7 @@ export default function RootLayout({
           <SiteNav />
           <div id="main-content">{children}</div>
           <SiteFooter />
+          <PortfolioAssistant />
           {process.env.NODE_ENV === 'production' && <Analytics />}
         </ThemeProvider>
       </body>

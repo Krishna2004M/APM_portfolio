@@ -152,7 +152,7 @@ export default function AboutPage() {
       </section>
 
       {/* COMPETENCIES */}
-      <section className="border-b border-border">
+      <section id="skills" className="scroll-mt-24 border-b border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-28">
           <div className="grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
             {competencies.map((c, i) => {
@@ -219,7 +219,10 @@ export default function AboutPage() {
 
       {/* CONTACT */}
       <Reveal as="section" className="border-b border-border">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+        <div
+          id="contact"
+          className="mx-auto max-w-[1400px] scroll-mt-24 px-6 py-24 md:px-10 md:py-32"
+        >
           <SectionLabel accent>Get in touch</SectionLabel>
           <h2 className="mt-6 max-w-4xl font-serif text-5xl font-medium leading-[1.05] tracking-tight md:text-7xl">
             <span className="italic">Let&apos;s talk.</span>

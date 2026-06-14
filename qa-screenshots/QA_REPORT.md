@@ -14,6 +14,9 @@ Date: June 14, 2026
 8. Case-study hero, 1440px desktop after interaction polish: healthy
 9. Case-study hero, 390px mobile emulation after interaction polish: healthy
 10. Case-study panels, 1440px desktop hover state: healthy
+11. Portfolio assistant, 1440px desktop, dark mode: healthy
+12. Portfolio assistant, true 390px mobile emulation, dark mode: healthy
+13. Streamed portfolio summary and navigation actions, 390px mobile: healthy
 
 ## Fixes Verified
 
@@ -29,6 +32,10 @@ Date: June 14, 2026
 - Hover transforms run only on fine pointers; keyboard focus receives a visible ring and shadow.
 - Decorative horizontal rules were removed from section labels, the case-study label, and action links.
 - True 390px device emulation reports a 390px document width with no page-level horizontal scrolling.
+- The assistant opens once per session, remains within the viewport, and uses a legible opaque sheet on mobile.
+- Streamed answers wrap correctly and deterministic action links remain visible above the composer.
+- The mobile launcher is hidden while the sheet is open, avoiding overlap with the composer.
+- Portfolio, unrelated, unknown-information, and prompt-injection API checks return the intended grounded or fixed responses.
 
 ## Accessibility Notes
 
