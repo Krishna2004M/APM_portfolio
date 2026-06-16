@@ -21,3 +21,4 @@ node_modules
 .next-*.log
 .next-*.err
 package-lock.json
+qa-screenshots/

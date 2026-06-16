@@ -118,15 +118,6 @@ Manual checks to perform:
 - Dark and light modes remain readable.
 - `.env.local` is ignored and the API key is not present in source files.
 
-## QA Artifacts
-
-Updated screenshots are stored in `qa-screenshots/`:
-
-- `12-chat-desktop-dark.png`
-- `13-chat-mobile-dark.png`
-- `14-chat-answer-mobile.png`
-- `QA_REPORT.md`
-
 ## Deployment Notes
 
 Before deploying:
