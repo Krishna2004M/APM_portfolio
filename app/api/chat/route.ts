@@ -11,8 +11,7 @@ import {
   isLikelyUnsafeQuestion,
   isPortfolioQuestion,
   OUT_OF_SCOPE_RESPONSE,
-  PORTFOLIO_ASSISTANT_INSTRUCTIONS,
-  shouldUseLocalPortfolioAnswer,
+  PORTFOLIO_MODEL_SYSTEM_PROMPT,
   UNSAFE_RESPONSE,
 } from "@/lib/portfolio-knowledge"
 
@@ -137,16 +136,14 @@ export async function POST(request: Request) {
       return fixedMessageResponse(UNSAFE_RESPONSE)
     }
 
-    if (!process.env.OPENAI_API_KEY || shouldUseLocalPortfolioAnswer(latestText)) {
-      return fixedMessageResponse(localAnswer)
-    }
+    if (!process.env.OPENAI_API_KEY) return fixedMessageResponse(localAnswer)
 
     const modelMessages = await convertToModelMessages(messages)
     const result = streamText({
       model: openai.responses("gpt-5.4-mini"),
-      system: PORTFOLIO_ASSISTANT_INSTRUCTIONS,
+      system: PORTFOLIO_MODEL_SYSTEM_PROMPT,
       messages: modelMessages,
-      maxOutputTokens: 300,
+      maxOutputTokens: 220,
       providerOptions: {
         openai: {
           store: false,

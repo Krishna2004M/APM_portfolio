@@ -218,9 +218,9 @@ export function PortfolioAssistant() {
         aria-label="Krishna portfolio assistant"
         aria-hidden={!isOpen}
         className={cn(
-          "fixed inset-x-3 bottom-3 flex h-[min(720px,calc(100dvh-24px))] flex-col overflow-hidden border border-border bg-background/95 shadow-2xl backdrop-blur-xl transition-all duration-300 sm:inset-x-auto sm:bottom-20 sm:right-6 sm:h-[min(650px,calc(100dvh-112px))] sm:w-[420px]",
+          "chat-glass-panel fixed inset-x-3 bottom-3 flex h-[min(720px,calc(100dvh-24px))] flex-col overflow-hidden border border-border transition-all duration-300 sm:inset-x-auto sm:bottom-20 sm:right-6 sm:h-[min(650px,calc(100dvh-112px))] sm:w-[420px]",
           isOpen
-            ? "pointer-events-auto translate-y-0 opacity-100"
+            ? "pointer-events-auto translate-y-0 opacity-100 animate-glass-float-in"
             : "pointer-events-none translate-y-4 opacity-0",
         )}
       >
@@ -261,7 +261,7 @@ export function PortfolioAssistant() {
 
               return (
                 <Message from={message.role} key={message.id}>
-                  <MessageContent>
+                  <MessageContent className="chat-copy-pop">
                     {message.parts.map((part, partIndex) =>
                       part.type === "text" ? (
                         <MessageResponse
@@ -284,7 +284,7 @@ export function PortfolioAssistant() {
                             href={action.href}
                             download={action.download}
                             onClick={() => setIsOpen(false)}
-                            className="hover-pop inline-flex items-center gap-2 border border-border bg-background px-3 py-2 text-[10px] font-medium uppercase tracking-[0.16em] text-foreground hover:border-primary hover:text-primary"
+                            className="chat-suggestion inline-flex items-center gap-2 border border-border bg-background/80 px-3 py-2 text-[10px] font-medium uppercase tracking-[0.16em] text-foreground hover:border-primary hover:text-primary"
                           >
                             <Icon className="size-3.5" />
                             {action.label}
@@ -298,7 +298,7 @@ export function PortfolioAssistant() {
             })}
 
             {isBusy && messages.at(-1)?.role === "user" && (
-              <div className="flex w-fit items-center gap-2 border border-border bg-background px-3 py-2 text-xs text-muted-foreground">
+              <div className="flex w-fit items-center gap-2 border border-border bg-background/80 px-3 py-2 text-xs text-muted-foreground shadow-lg">
                 <span className="flex gap-1">
                   <span className="size-1.5 rounded-full bg-primary animate-pulse-dot" />
                   <span className="size-1.5 rounded-full bg-primary/70 animate-pulse-dot [animation-delay:120ms]" />
@@ -326,7 +326,7 @@ export function PortfolioAssistant() {
                     type="button"
                     onClick={() => void submit(suggestion)}
                     disabled={isBusy || requestCount >= MAX_CLIENT_REQUESTS}
-                    className="hover-pop flex min-h-11 items-center justify-between gap-3 border border-border bg-background px-4 py-2 text-left text-sm text-foreground hover:border-primary hover:text-primary disabled:pointer-events-none disabled:opacity-50"
+                    className="chat-suggestion flex min-h-11 items-center justify-between gap-3 border border-border bg-background/80 px-4 py-2 text-left text-sm text-foreground hover:border-primary hover:text-primary disabled:pointer-events-none disabled:opacity-50"
                   >
                     <span>{suggestion}</span>
                     <ArrowRight className="size-4 shrink-0" />
@@ -356,7 +356,7 @@ export function PortfolioAssistant() {
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask about Krishna..."
                 disabled={isBusy}
-                className="min-h-11 min-w-0 flex-1 border border-border bg-background px-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary disabled:opacity-60"
+                className="min-h-11 min-w-0 flex-1 border border-border bg-background/85 px-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary disabled:opacity-60"
               />
               {isBusy ? (
                 <button

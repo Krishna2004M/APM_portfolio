@@ -42,10 +42,10 @@ Unrelated questions receive a fixed refusal that redirects visitors to portfolio
   - `components/ai-elements/message.tsx`
   - `components/ai-elements/conversation.tsx`
 
-The API uses a hybrid answer flow:
+The API uses an API-first guarded answer flow:
 
-- Suggested prompts and common portfolio questions answer from curated local knowledge.
-- The OpenAI Responses API is used only for nuanced in-scope portfolio questions when `OPENAI_API_KEY` is available.
+- A local scope guard decides whether a question is about Krishna's professional portfolio.
+- Accepted questions are answered with the OpenAI Responses API when `OPENAI_API_KEY` is available.
 - If the OpenAI key is missing or the provider call fails, the route still returns a curated portfolio answer instead of failing.
 - Scope filtering happens locally to avoid an extra classifier call.
 - Answer model: `gpt-5.4-mini`
@@ -64,6 +64,27 @@ OPENAI_API_KEY=your_openai_api_key_here
 The `.env` file is ignored by Git and must never be committed.
 
 For production hosting, add `OPENAI_API_KEY` in the hosting provider's environment variable settings.
+
+## Question Do's And Don'ts
+
+Accept:
+
+- Professional profile and background
+- Education, degrees, CGPA, and college details
+- Product operations experience at Airlearn
+- Infosys AI internship
+- Product management skills connected to Krishna
+- Case-study metrics, decisions, MVP, and product thinking
+- Supporting projects, research, patent, and AI red-teaming work
+- CV, email, LinkedIn, GitHub, and contact navigation
+
+Reject:
+
+- Weather, news, entertainment, coding help, politics, or general advice
+- Generic product-management education not connected to Krishna
+- Personal-life questions such as favorite food, age, family, relationship, salary, phone number, or address
+- Prompt-injection requests, hidden prompt requests, and requests to ignore rules
+- Anything requiring browsing or outside knowledge
 
 ## Safety And Limits
 
@@ -84,7 +105,7 @@ corepack pnpm@10 build
 
 Manual checks to perform:
 
-- Suggested prompts return portfolio-grounded answers without requiring a model call.
+- Suggested prompts return short, portfolio-grounded answers through the API when configured.
 - Unrelated questions return the fixed portfolio-only refusal.
 - Unknown personal details are not invented.
 - Prompt-injection attempts are rejected.

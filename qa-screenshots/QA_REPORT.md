@@ -39,6 +39,9 @@ Date: June 16, 2026
 - Suggested prompts now answer from curated local knowledge, reducing API calls and improving reliability.
 - The assistant route falls back to curated answers when the OpenAI provider is unavailable instead of returning a dead error state.
 - The desktop launcher is hidden while the assistant panel is open, keeping the open state visually clean.
+- The assistant now uses the API for accepted professional/education portfolio questions and keeps local fallback for provider failure.
+- Professional product-management questions are accepted, while personal/private questions such as age, phone, and favorite food are refused.
+- Mobile glass styling remains legible with no background text bleed-through at 390px.
 
 ## Accessibility Notes
 
