@@ -22,6 +22,7 @@ const MAX_MESSAGES = 10
 const MAX_MESSAGE_LENGTH = 600
 const MAX_REQUESTS = 12
 const RATE_WINDOW_MS = 10 * 60 * 1000
+const PORTFOLIO_ASSISTANT_MODEL = process.env.PORTFOLIO_ASSISTANT_MODEL || "gpt-5.4-nano"
 
 type RateEntry = {
   count: number
@@ -140,10 +141,10 @@ export async function POST(request: Request) {
 
     const modelMessages = await convertToModelMessages(messages)
     const result = streamText({
-      model: openai.responses("gpt-5.4-mini"),
+      model: openai.responses(PORTFOLIO_ASSISTANT_MODEL),
       system: PORTFOLIO_MODEL_SYSTEM_PROMPT,
       messages: modelMessages,
-      maxOutputTokens: 220,
+      maxOutputTokens: 180,
       providerOptions: {
         openai: {
           store: false,

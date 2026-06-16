@@ -48,22 +48,25 @@ The API uses an API-first guarded answer flow:
 - Accepted questions are answered with the OpenAI Responses API when `OPENAI_API_KEY` is available.
 - If the OpenAI key is missing or the provider call fails, the route still returns a curated portfolio answer instead of failing.
 - Scope filtering happens locally to avoid an extra classifier call.
-- Answer model: `gpt-5.4-mini`
+- Default answer model: `gpt-5.4-nano`
+- Optional override: set `PORTFOLIO_ASSISTANT_MODEL` to another Responses API text model if more quality is needed.
 - Moderation model: `omni-moderation-latest`
 - `store: false` is set for OpenAI calls.
 - No tools, web search, database, embeddings, or server-side chat history are used.
+- Fine-tuning is intentionally not used. The assistant's job is narrow and changes often, so curated knowledge plus a guarded prompt is simpler, cheaper, and easier to update.
 
 ## Environment Setup
 
-Create a local `.env` file with:
+Create a local `.env.local` file with:
 
 ```bash
 OPENAI_API_KEY=your_openai_api_key_here
+PORTFOLIO_ASSISTANT_MODEL=gpt-5.4-nano
 ```
 
-The `.env` file is ignored by Git and must never be committed.
+The `.env.local` file is ignored by Git and must never be committed.
 
-For production hosting, add `OPENAI_API_KEY` in the hosting provider's environment variable settings.
+For production hosting, add `OPENAI_API_KEY` in the hosting provider's environment variable settings. `PORTFOLIO_ASSISTANT_MODEL` is optional because the app defaults to `gpt-5.4-nano`.
 
 ## Question Do's And Don'ts
 
@@ -113,7 +116,7 @@ Manual checks to perform:
 - Mobile layout fits at 390px width.
 - Desktop layout stays aligned at 1440px width.
 - Dark and light modes remain readable.
-- `.env` is ignored and the API key is not present in source files.
+- `.env.local` is ignored and the API key is not present in source files.
 
 ## QA Artifacts
 
