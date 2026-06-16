@@ -91,3 +91,161 @@ export const OUT_OF_SCOPE_RESPONSE =
 
 export const UNSAFE_RESPONSE =
   "I can't help with that request. I can still answer questions about Krishna's portfolio, experience, skills, and case studies."
+
+const NAVIGATION_RESPONSE =
+  "I can help you move through Krishna's portfolio. Start with the main case study for his product thinking, supporting work for AI and research projects, skills for PM and AI-product strengths, or contact details to view his CV and links."
+
+const SUMMARY_RESPONSE =
+  "M Krishna is an Associate Product Manager and Product Analyst focused on AI products, language-learning experiences, and product operations. His strongest experience is with Airlearn under Unacademy Group, where he reviews learner flows, lesson modules, scripts, content quality, AI behavior, and release readiness. His featured case study is the Airlearn Mistakes Review feature, a retention-focused product idea that turns learner mistakes into structured review loops. He also brings AI internship, NLP research, clinical AI, and AI red-teaming experience."
+
+const CASE_STUDY_RESPONSE =
+  "Krishna's main case study is the Airlearn Mistakes Review feature. The problem was that learner mistakes were not being converted into a useful review habit, which could weaken retention and learning outcomes. Krishna proposed an MVP that captures mistakes, groups them, gives retry flows and explanations, and uses active recall plus spaced repetition. He also defined metrics such as review open rate, completion, corrected mistake percentage, repeat mistake rate, D7/D14 retention, and weekly review sessions."
+
+const SKILLS_RESPONSE =
+  "Krishna's PM strengths include product thinking, user-journey mapping, UX review, feature prioritization, documentation, QA testing, funnel thinking, retention analysis, engagement metrics, and drop-off analysis. His AI-product strengths include GenAI, LLMs, prompt evaluation, AI safety, red-teaming, model-output evaluation, and AI workflow automation. He also works with Figma, SQL, Excel, Google Sheets, Streamlit, GitHub, OpenAI API, Hugging Face, and Ollama."
+
+const EXPERIENCE_RESPONSE =
+  "Krishna's current experience is as a Product Operations Intern at Airlearn, an AI-enabled language-learning product under Unacademy Group. He validates learner flows, lesson content, scripts, Figma modules, AI behavior, and production readiness before release. Earlier, he worked as an Artificial Intelligence Intern at Infosys, where he built a DETR plus GPT vision-language workflow using Python, Hugging Face Transformers, structured prompting, and the OpenAI API."
+
+const SUPPORTING_WORK_RESPONSE =
+  "Krishna's supporting work includes a brain tumor detection and clinical report generator using MONAI U-Net with GenAI-assisted radiology reports, a provisional patent filed in November 2025, Google Adversarial Nibbler AI red-teaming work where he was selected among roughly 150 participants from more than 7,000 applicants, and published NLP research on code-mixing and code-switching detection across English, Hindi, and Tamil with 91.5% LSTM accuracy."
+
+const EDUCATION_RESPONSE =
+  "Krishna completed B.Tech Computer Science and Engineering at Lovely Professional University in June 2026 with a CGPA of 6.5/10. He also completed a Diploma in Computer Science and Engineering from Tamil Nadu Government Polytechnic College with 88.7%."
+
+const CONTACT_RESPONSE =
+  "You can contact Krishna at krishbabu2004@gmail.com. His LinkedIn is linkedin.com/in/m-krishna-krishna, his GitHub is github.com/Krishna2004M, and his CV is available from the portfolio's Download CV link."
+
+const ABOUT_RESPONSE =
+  "Krishna is positioned around AI products, learning technology, and product operations. The portfolio highlights his Airlearn product-operations work, the Mistakes Review case study, AI and NLP projects, PM skills, education, CV, and contact links."
+
+const UNKNOWN_RESPONSE =
+  "The portfolio does not include that personal detail. I can still help with Krishna's profile, Airlearn case study, supporting work, skills, education, CV, and contact details."
+
+const unknownPersonalTerms = [
+  "favorite",
+  "food",
+  "age",
+  "birthday",
+  "phone",
+  "address",
+  "salary",
+  "family",
+  "relationship",
+]
+
+const localAnswerTerms = [
+  "summar",
+  "overview",
+  "case",
+  "mistake",
+  "airlearn",
+  "skill",
+  "pm",
+  "product manager",
+  "experience",
+  "intern",
+  "unacademy",
+  "infosys",
+  "support",
+  "project",
+  "work",
+  "patent",
+  "nibbler",
+  "nlp",
+  "education",
+  "college",
+  "university",
+  "cgpa",
+  "diploma",
+  "cv",
+  "resume",
+  "contact",
+  "email",
+  "linkedin",
+  "github",
+]
+
+const portfolioScopeTerms = [
+  "krishna",
+  "profile",
+  "portfolio",
+  "case study",
+  "airlearn",
+  "mistakes",
+  "skill",
+  "experience",
+  "education",
+  "project",
+  "work",
+  "cv",
+  "resume",
+  "contact",
+  "linkedin",
+  "github",
+  "email",
+  "pm",
+  "product manager",
+  "product management",
+  "apm",
+  "unacademy",
+  "infosys",
+  "patent",
+  "nibbler",
+  "nlp",
+]
+
+const unsafeTerms = [
+  "bomb",
+  "weapon",
+  "malware",
+  "phishing",
+  "steal",
+  "self harm",
+  "suicide",
+]
+
+export function isLikelyUnsafeQuestion(question: string) {
+  const normalized = question.toLowerCase()
+  return unsafeTerms.some((term) => normalized.includes(term))
+}
+
+export function isPortfolioQuestion(question: string) {
+  const normalized = question.toLowerCase()
+
+  if (
+    normalized.includes("ignore") &&
+    (normalized.includes("instruction") ||
+      normalized.includes("system prompt") ||
+      normalized.includes("developer"))
+  ) {
+    return false
+  }
+
+  return portfolioScopeTerms.some((term) => normalized.includes(term))
+}
+
+export function getLocalPortfolioAnswer(question: string) {
+  const normalized = question.toLowerCase()
+
+  if (!isPortfolioQuestion(question)) return OUT_OF_SCOPE_RESPONSE
+  if (unknownPersonalTerms.some((term) => normalized.includes(term))) return UNKNOWN_RESPONSE
+  if (normalized.includes("summar") || normalized.includes("overview")) return SUMMARY_RESPONSE
+  if (normalized.includes("case") || normalized.includes("mistake") || normalized.includes("airlearn")) return CASE_STUDY_RESPONSE
+  if (normalized.includes("skill") || normalized.includes("pm") || normalized.includes("product manager")) return SKILLS_RESPONSE
+  if (normalized.includes("experience") || normalized.includes("intern") || normalized.includes("unacademy") || normalized.includes("infosys")) return EXPERIENCE_RESPONSE
+  if (normalized.includes("support") || normalized.includes("project") || normalized.includes("work") || normalized.includes("patent") || normalized.includes("nibbler") || normalized.includes("nlp")) return SUPPORTING_WORK_RESPONSE
+  if (normalized.includes("education") || normalized.includes("college") || normalized.includes("university") || normalized.includes("cgpa") || normalized.includes("diploma")) return EDUCATION_RESPONSE
+  if (normalized.includes("cv") || normalized.includes("resume") || normalized.includes("contact") || normalized.includes("email") || normalized.includes("linkedin") || normalized.includes("github")) return CONTACT_RESPONSE
+  if (normalized.includes("navigate") || normalized.includes("where") || normalized.includes("section")) return NAVIGATION_RESPONSE
+
+  return ABOUT_RESPONSE
+}
+
+export function shouldUseLocalPortfolioAnswer(question: string) {
+  const normalized = question.toLowerCase()
+  return (
+    unknownPersonalTerms.some((term) => normalized.includes(term)) ||
+    localAnswerTerms.some((term) => normalized.includes(term))
+  )
+}

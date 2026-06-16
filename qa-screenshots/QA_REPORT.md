@@ -1,6 +1,6 @@
 # Portfolio UI Quality Check
 
-Date: June 14, 2026
+Date: June 16, 2026
 
 ## Screens Reviewed
 
@@ -36,6 +36,9 @@ Date: June 14, 2026
 - Streamed answers wrap correctly and deterministic action links remain visible above the composer.
 - The mobile launcher is hidden while the sheet is open, avoiding overlap with the composer.
 - Portfolio, unrelated, unknown-information, and prompt-injection API checks return the intended grounded or fixed responses.
+- Suggested prompts now answer from curated local knowledge, reducing API calls and improving reliability.
+- The assistant route falls back to curated answers when the OpenAI provider is unavailable instead of returning a dead error state.
+- The desktop launcher is hidden while the assistant panel is open, keeping the open state visually clean.
 
 ## Accessibility Notes
 

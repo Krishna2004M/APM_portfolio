@@ -60,13 +60,6 @@ type NavAction = {
   download?: string
 }
 
-function messageText(message: UIMessage) {
-  return message.parts
-    .filter((part) => part.type === "text")
-    .map((part) => part.text)
-    .join("")
-}
-
 function getActions(prompt: string): NavAction[] {
   const value = prompt.toLowerCase()
 
@@ -236,14 +229,15 @@ export function PortfolioAssistant() {
             <span className="flex size-9 shrink-0 items-center justify-center border border-primary/40 bg-primary/10 text-primary">
               <Bot className="size-4" />
             </span>
-            <span className="min-w-0">
-              <span className="block truncate text-sm font-medium text-foreground">
-                Krishna Portfolio Assistant
+              <span className="min-w-0">
+                <span className="block truncate text-sm font-medium text-foreground">
+                  Krishna Portfolio Assistant
+                </span>
+                <span className="mt-1 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  <span className="size-1.5 rounded-full bg-primary animate-pulse-dot" />
+                  Ready for portfolio questions
+                </span>
               </span>
-              <span className="block text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                Portfolio questions only
-              </span>
-            </span>
           </div>
           <button
             type="button"
@@ -304,21 +298,26 @@ export function PortfolioAssistant() {
             })}
 
             {isBusy && messages.at(-1)?.role === "user" && (
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <span className="size-1.5 animate-pulse rounded-full bg-primary" />
-                Reviewing Krishna&apos;s portfolio
+              <div className="flex w-fit items-center gap-2 border border-border bg-background px-3 py-2 text-xs text-muted-foreground">
+                <span className="flex gap-1">
+                  <span className="size-1.5 rounded-full bg-primary animate-pulse-dot" />
+                  <span className="size-1.5 rounded-full bg-primary/70 animate-pulse-dot [animation-delay:120ms]" />
+                  <span className="size-1.5 rounded-full bg-primary/40 animate-pulse-dot [animation-delay:240ms]" />
+                </span>
+                Reading approved portfolio notes
               </div>
             )}
 
             {error && (
-              <div role="alert" className="border border-destructive/35 bg-destructive/10 p-3 text-sm text-foreground">
-                The assistant is temporarily unavailable. Please try again.
+              <div role="alert" className="border border-primary/35 bg-primary/10 p-3 text-sm text-foreground">
+                The assistant is using portfolio notes. Try one of the suggested prompts or ask about Krishna&apos;s case study, skills, work, CV, or contact details.
               </div>
             )}
 
             {!hasConversation && (
               <div className="grid gap-2 pt-1">
-                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                <p className="flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                  <Sparkles className="size-3 text-primary" />
                   Suggested questions
                 </p>
                 {suggestions.map((suggestion) => (
@@ -393,7 +392,7 @@ export function PortfolioAssistant() {
         onClick={() => setIsOpen((current) => !current)}
         className={cn(
           "hover-pop glass-surface relative size-14 items-center justify-center border border-primary bg-background text-primary shadow-xl",
-          isOpen ? "hidden sm:inline-flex" : "inline-flex",
+          isOpen ? "hidden" : "inline-flex",
         )}
         aria-label={isOpen ? "Close portfolio assistant" : "Open portfolio assistant"}
         aria-expanded={isOpen}

@@ -3,16 +3,16 @@ import {
   convertToModelMessages,
   createUIMessageStream,
   createUIMessageStreamResponse,
-  generateText,
-  Output,
   streamText,
   type UIMessage,
 } from "ai"
-import { z } from "zod"
 import {
+  getLocalPortfolioAnswer,
+  isLikelyUnsafeQuestion,
+  isPortfolioQuestion,
   OUT_OF_SCOPE_RESPONSE,
   PORTFOLIO_ASSISTANT_INSTRUCTIONS,
-  SCOPE_CLASSIFIER_INSTRUCTIONS,
+  shouldUseLocalPortfolioAnswer,
   UNSAFE_RESPONSE,
 } from "@/lib/portfolio-knowledge"
 
@@ -75,6 +75,9 @@ function checkRateLimit(sessionId: string) {
 }
 
 async function isUnsafe(text: string) {
+  if (isLikelyUnsafeQuestion(text)) return true
+  if (!process.env.OPENAI_API_KEY) return false
+
   const response = await fetch("https://api.openai.com/v1/moderations", {
     method: "POST",
     headers: {
@@ -93,20 +96,9 @@ async function isUnsafe(text: string) {
 }
 
 export async function POST(request: Request) {
-  if (!process.env.OPENAI_API_KEY) {
-    return Response.json({ error: "Assistant is not configured." }, { status: 503 })
-  }
-
   const sessionId = request.headers.get("x-portfolio-session")?.slice(0, 80)
   if (!sessionId) {
     return Response.json({ error: "Missing session identifier." }, { status: 400 })
-  }
-
-  if (!checkRateLimit(sessionId)) {
-    return fixedMessageResponse(
-      "You've reached the chat limit for this session. You can still explore Krishna's case study, supporting work, skills, and CV directly from the portfolio.",
-      429,
-    )
   }
 
   let body: { messages?: UIMessage[] }
@@ -127,33 +119,26 @@ export async function POST(request: Request) {
     )
   }
 
+  if (!checkRateLimit(sessionId)) {
+    return fixedMessageResponse(
+      "You've reached the chat limit for this session. You can still explore Krishna's case study, supporting work, skills, and CV directly from the portfolio.",
+      429,
+    )
+  }
+
+  if (!isPortfolioQuestion(latestText)) {
+    return fixedMessageResponse(OUT_OF_SCOPE_RESPONSE)
+  }
+
+  const localAnswer = getLocalPortfolioAnswer(latestText)
+
   try {
     if (await isUnsafe(latestText)) {
       return fixedMessageResponse(UNSAFE_RESPONSE)
     }
 
-    const { output: scope } = await generateText({
-      model: openai.responses("gpt-5.4-nano"),
-      output: Output.object({
-        schema: z.object({
-          inScope: z.boolean(),
-        }),
-      }),
-      system: SCOPE_CLASSIFIER_INSTRUCTIONS,
-      prompt: latestText,
-      maxOutputTokens: 40,
-      providerOptions: {
-        openai: {
-          store: false,
-          reasoningEffort: "none",
-          textVerbosity: "low",
-        } satisfies OpenAILanguageModelResponsesOptions,
-      },
-      abortSignal: request.signal,
-    })
-
-    if (!scope.inScope) {
-      return fixedMessageResponse(OUT_OF_SCOPE_RESPONSE)
+    if (!process.env.OPENAI_API_KEY || shouldUseLocalPortfolioAnswer(latestText)) {
+      return fixedMessageResponse(localAnswer)
     }
 
     const modelMessages = await convertToModelMessages(messages)
@@ -184,9 +169,6 @@ export async function POST(request: Request) {
       error instanceof Error ? error.message : "Unknown provider error",
     )
 
-    return Response.json(
-      { error: "Krishna's portfolio assistant is temporarily unavailable." },
-      { status: 503 },
-    )
+    return fixedMessageResponse(localAnswer)
   }
 }
