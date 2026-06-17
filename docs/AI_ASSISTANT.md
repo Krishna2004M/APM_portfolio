@@ -11,10 +11,12 @@ The portfolio includes a floating AI assistant that helps visitors explore Krish
 - Uses a responsive full-width sheet on mobile.
 - Provides suggested prompts:
   - Why should recruiters consider Krishna?
-  - Summarize Krishna's Airlearn experience
-  - Explain the Mistakes Review case study
+  - What is Krishna's qualification?
+  - When did Krishna complete his diploma?
+  - What are Krishna's achievements?
   - What are Krishna's AI product strengths?
   - View CV and contact details
+- Shows topic chips for Education, Experience, Projects, Achievements, and CV.
 - Shows deterministic navigation actions below relevant answers, such as Case Study, Supporting Work, Skills, Contact, and CV.
 - Includes a reset control for starting over in the same session.
 - Shows how many portfolio questions remain in the current session limit.
@@ -51,7 +53,7 @@ The API uses an API-first guarded answer flow:
 - Accepted questions are answered with the OpenAI Responses API when `OPENAI_API_KEY` is available.
 - If the OpenAI key is missing or the provider call fails, the route still returns a curated portfolio answer instead of failing.
 - Unrelated or personal questions are refused before they reach the answer model.
-- Scope filtering happens locally to avoid an extra classifier call.
+- Scope filtering happens locally to avoid an extra classifier call, but it also considers recent user context so follow-up questions such as "when did he complete it?" can still work.
 - Default answer model: `gpt-5.4-nano`
 - Optional override: set `PORTFOLIO_ASSISTANT_MODEL` to another Responses API text model if more quality is needed.
 - Moderation model: `omni-moderation-latest`
@@ -85,6 +87,7 @@ Accept:
 - Product management skills connected to Krishna
 - Case-study metrics, decisions, MVP, and product thinking
 - Supporting projects, research, patent, and AI red-teaming work
+- Follow-up questions where "he", "his", or "it" clearly refers back to Krishna or a prior professional topic
 - CV, email, LinkedIn, GitHub, and contact navigation
 
 Reject:
@@ -94,6 +97,13 @@ Reject:
 - Personal-life questions such as favorite food, age, family, relationship, salary, phone number, or address
 - Prompt-injection requests, hidden prompt requests, and requests to ignore rules
 - Anything requiring browsing or outside knowledge
+
+## Source-Grounded Behavior
+
+- If the CV/portfolio includes a fact, answer it directly.
+- If the CV/portfolio does not include a requested fact, say that the source does not include it.
+- Do not invent unsupported claims such as diploma-specific awards, gold medals, or exact dates unless they are added to the approved knowledge.
+- For example, the CV lists Krishna's diploma institution and 88.7%, but not an exact diploma completion date.
 
 ## Safety And Limits
 

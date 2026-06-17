@@ -44,6 +44,14 @@ function getText(message: UIMessage) {
     .trim()
 }
 
+function getConversationContext(messages: UIMessage[]) {
+  return messages
+    .filter((message) => message.role === "user")
+    .slice(-3)
+    .map(getText)
+    .join("\n")
+}
+
 function fixedMessageResponse(text: string, status = 200) {
   const stream = createUIMessageStream({
     execute({ writer }) {
@@ -111,6 +119,7 @@ export async function POST(request: Request) {
   const messages = Array.isArray(body.messages) ? body.messages.slice(-MAX_MESSAGES) : []
   const latestUserMessage = [...messages].reverse().find((message) => message.role === "user")
   const latestText = latestUserMessage ? getText(latestUserMessage) : ""
+  const conversationContext = getConversationContext(messages)
 
   if (!latestText || latestText.length > MAX_MESSAGE_LENGTH) {
     return Response.json(
@@ -126,11 +135,11 @@ export async function POST(request: Request) {
     )
   }
 
-  if (!isPortfolioQuestion(latestText)) {
+  if (!isPortfolioQuestion(latestText, conversationContext)) {
     return fixedMessageResponse(OUT_OF_SCOPE_RESPONSE)
   }
 
-  const localAnswer = getLocalPortfolioAnswer(latestText)
+  const localAnswer = getLocalPortfolioAnswer(latestText, conversationContext)
 
   try {
     if (await isUnsafe(latestText)) {

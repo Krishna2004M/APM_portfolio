@@ -48,8 +48,9 @@ const welcomeMessage: UIMessage = {
 
 const suggestions = [
   "Why should recruiters consider Krishna?",
-  "Summarize Krishna's Airlearn experience",
-  "Explain the Mistakes Review case study",
+  "What is Krishna's qualification?",
+  "When did Krishna complete his diploma?",
+  "What are Krishna's achievements?",
   "What are Krishna's AI product strengths?",
   "View CV and contact details",
 ]
@@ -101,7 +102,15 @@ function getActions(prompt: string): NavAction[] {
     ]
   }
 
-  if (value.includes("support") || value.includes("project") || value.includes("work")) {
+  if (
+    value.includes("support") ||
+    value.includes("project") ||
+    value.includes("work") ||
+    value.includes("achievement") ||
+    value.includes("award") ||
+    value.includes("patent") ||
+    value.includes("research")
+  ) {
     return [{ label: "View supporting work", href: "/work", icon: BriefcaseBusiness }]
   }
 
@@ -279,7 +288,7 @@ export function PortfolioAssistant() {
               </span>
               <span className="mt-1 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 <span className="size-1.5 rounded-full bg-primary animate-pulse-dot" />
-                Recruiter-ready answers
+                CV-grounded career answers
               </span>
             </span>
           </div>
@@ -373,8 +382,18 @@ export function PortfolioAssistant() {
               <div className="grid gap-2 pt-1">
                 <p className="flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                   <Sparkles className="size-3 text-primary" />
-                  Suggested questions
+                  Ask natural career questions
                 </p>
+                <div className="mb-1 flex flex-wrap gap-2">
+                  {["Education", "Experience", "Projects", "Achievements", "CV"].map((topic) => (
+                    <span
+                      key={topic}
+                      className="border border-border bg-background/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-muted-foreground"
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                </div>
                 {suggestions.map((suggestion) => (
                   <button
                     key={suggestion}
@@ -409,7 +428,7 @@ export function PortfolioAssistant() {
                 value={input}
                 maxLength={600}
                 onChange={(event) => setInput(event.target.value)}
-                placeholder="Ask about Krishna..."
+                placeholder="Ask about Krishna's career..."
                 disabled={isBusy}
                 className="min-h-11 min-w-0 flex-1 border border-border bg-background/85 px-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary disabled:opacity-60"
               />
@@ -437,8 +456,7 @@ export function PortfolioAssistant() {
             </form>
           )}
           <p className="mt-2 text-center text-[10px] leading-relaxed text-muted-foreground">
-            Answers use approved portfolio notes only. {remainingRequests} questions left this
-            session.
+            Professional career questions only. {remainingRequests} questions left this session.
           </p>
         </footer>
       </section>
