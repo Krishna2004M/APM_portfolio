@@ -9,6 +9,7 @@ import {
   FileText,
   GraduationCap,
   MessageCircle,
+  RotateCcw,
   Send,
   Sparkles,
   Square,
@@ -40,16 +41,16 @@ const welcomeMessage: UIMessage = {
   parts: [
     {
       type: "text",
-      text: "Welcome to Krishna's portfolio. I can help you explore his product work, case study, skills, experience, education, and CV.",
+      text: "Welcome to Krishna's portfolio. I can help you quickly understand his APM fit, Airlearn case study, AI product work, skills, education, CV, and contact details.",
     },
   ],
 }
 
 const suggestions = [
-  "Summarize Krishna's profile",
-  "Explain the main case study",
-  "What are Krishna's PM skills?",
-  "Show supporting work",
+  "Why should recruiters consider Krishna?",
+  "Summarize Krishna's Airlearn experience",
+  "Explain the Mistakes Review case study",
+  "What are Krishna's AI product strengths?",
   "View CV and contact details",
 ]
 
@@ -72,12 +73,32 @@ function getActions(prompt: string): NavAction[] {
     ]
   }
 
+  if (value.includes("recruiter") || value.includes("hire") || value.includes("fit")) {
+    return [
+      {
+        label: "Download CV",
+        href: "/M_Krishna_Product_APM_CV.pdf",
+        icon: FileText,
+        download: "M_Krishna_Product_APM_CV.pdf",
+      },
+      { label: "Open case study", href: "/case-study", icon: FileText },
+      { label: "Contact", href: "/about#contact", icon: MessageCircle },
+    ]
+  }
+
   if (value.includes("case study") || value.includes("mistakes")) {
     return [{ label: "Open case study", href: "/case-study", icon: FileText }]
   }
 
   if (value.includes("skill")) {
     return [{ label: "Explore skills", href: "/about#skills", icon: Sparkles }]
+  }
+
+  if (value.includes("airlearn") || value.includes("experience")) {
+    return [
+      { label: "Main case study", href: "/case-study", icon: FileText },
+      { label: "Skills", href: "/about#skills", icon: Sparkles },
+    ]
   }
 
   if (value.includes("support") || value.includes("project") || value.includes("work")) {
@@ -210,7 +231,23 @@ export function PortfolioAssistant() {
     void submit(input)
   }
 
+  function resetChat() {
+    clearError()
+    stop()
+    setInput("")
+    setMessages([welcomeMessage])
+    setRequestCount(0)
+
+    try {
+      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify([welcomeMessage]))
+      window.sessionStorage.setItem(REQUEST_COUNT_KEY, "0")
+    } catch {
+      // Reset still works even when browser storage is unavailable.
+    }
+  }
+
   const hasConversation = messages.some((message) => message.role === "user")
+  const remainingRequests = Math.max(0, MAX_CLIENT_REQUESTS - requestCount)
 
   return (
     <div className="fixed bottom-4 right-4 z-[80] sm:bottom-6 sm:right-6">
@@ -229,25 +266,36 @@ export function PortfolioAssistant() {
             <span className="flex size-9 shrink-0 items-center justify-center border border-primary/40 bg-primary/10 text-primary">
               <Bot className="size-4" />
             </span>
-              <span className="min-w-0">
-                <span className="block truncate text-sm font-medium text-foreground">
-                  Krishna Portfolio Assistant
-                </span>
-                <span className="mt-1 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                  <span className="size-1.5 rounded-full bg-primary animate-pulse-dot" />
-                  Ready for portfolio questions
-                </span>
+            <span className="min-w-0">
+              <span className="block truncate text-sm font-medium text-foreground">
+                Krishna Portfolio Assistant
               </span>
+              <span className="mt-1 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                <span className="size-1.5 rounded-full bg-primary animate-pulse-dot" />
+                Recruiter-ready answers
+              </span>
+            </span>
           </div>
-          <button
-            type="button"
-            onClick={() => setIsOpen(false)}
-            className="hover-pop inline-flex size-9 items-center justify-center border border-border text-foreground hover:border-primary hover:text-primary"
-            aria-label="Close portfolio assistant"
-            title="Close"
-          >
-            <X className="size-4" />
-          </button>
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              type="button"
+              onClick={resetChat}
+              className="hover-pop inline-flex size-9 items-center justify-center border border-border text-foreground hover:border-primary hover:text-primary"
+              aria-label="Reset portfolio assistant chat"
+              title="Reset chat"
+            >
+              <RotateCcw className="size-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              className="hover-pop inline-flex size-9 items-center justify-center border border-border text-foreground hover:border-primary hover:text-primary"
+              aria-label="Close portfolio assistant"
+              title="Close"
+            >
+              <X className="size-4" />
+            </button>
+          </div>
         </header>
 
         <Conversation>
@@ -382,7 +430,8 @@ export function PortfolioAssistant() {
             </form>
           )}
           <p className="mt-2 text-center text-[10px] leading-relaxed text-muted-foreground">
-            Answers use approved portfolio and CV information only.
+            Answers use approved portfolio notes only. {remainingRequests} questions left this
+            session.
           </p>
         </footer>
       </section>

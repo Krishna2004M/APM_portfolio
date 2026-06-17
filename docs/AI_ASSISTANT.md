@@ -10,12 +10,14 @@ The portfolio includes a floating AI assistant that helps visitors explore Krish
 - Appears as a compact bottom-right chat panel on desktop.
 - Uses a responsive full-width sheet on mobile.
 - Provides suggested prompts:
-  - Summarize Krishna's profile
-  - Explain the main case study
-  - What are Krishna's PM skills?
-  - Show supporting work
+  - Why should recruiters consider Krishna?
+  - Summarize Krishna's Airlearn experience
+  - Explain the Mistakes Review case study
+  - What are Krishna's AI product strengths?
   - View CV and contact details
 - Shows deterministic navigation actions below relevant answers, such as Case Study, Supporting Work, Skills, Contact, and CV.
+- Includes a reset control for starting over in the same session.
+- Shows how many portfolio questions remain in the current session limit.
 
 ## Scope Rules
 
@@ -73,6 +75,7 @@ For production hosting, add `OPENAI_API_KEY` in the hosting provider's environme
 Accept:
 
 - Professional profile and background
+- Recruiter-fit questions for APM and Product Analyst roles
 - Education, degrees, CGPA, and college details
 - Product operations experience at Airlearn
 - Infosys AI internship

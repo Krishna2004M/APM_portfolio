@@ -6,6 +6,7 @@ PROFESSIONAL SUMMARY
 - Works across problem framing, user-flow review, prototype direction, AI evaluation, content quality, and release readiness.
 - Published NLP researcher, provisional-patent holder, and Google Adversarial Nibbler AI red-teamer.
 - Core strengths: product thinking, user-journey mapping, AI evaluation, learning-product quality, metrics, and cross-functional execution.
+- Looking for Associate Product Manager and Product Analyst opportunities, especially in AI products and learning technology.
 
 EXPERIENCE
 - Product Operations Intern, Airlearn (Unacademy Group), Bangalore, November 2025 to present.
@@ -101,6 +102,9 @@ const NAVIGATION_RESPONSE =
 const SUMMARY_RESPONSE =
   "M Krishna is an Associate Product Manager and Product Analyst focused on AI products, language-learning experiences, and product operations. His strongest experience is with Airlearn under Unacademy Group, where he reviews learner flows, lesson modules, scripts, content quality, AI behavior, and release readiness. His featured case study is the Airlearn Mistakes Review feature, a retention-focused product idea that turns learner mistakes into structured review loops. He also brings AI internship, NLP research, clinical AI, and AI red-teaming experience."
 
+const RECRUITER_RESPONSE =
+  "Recruiters should consider Krishna for APM or Product Analyst roles because he combines hands-on product-operations experience at Airlearn with AI-product judgment, user-flow review, QA thinking, and metric-led product framing. His Mistakes Review case study shows problem framing, MVP scoping, competitor teardown, retention metrics, and A/B-test thinking. He also brings supporting AI depth through NLP research, clinical AI work, and Google Adversarial Nibbler red-teaming."
+
 const CASE_STUDY_RESPONSE =
   "Krishna's main case study is the Airlearn Mistakes Review feature. The problem was that learner mistakes were not being converted into a useful review habit, which could weaken retention and learning outcomes. Krishna proposed an MVP that captures mistakes, groups them, gives retry flows and explanations, and uses active recall plus spaced repetition. He also defined metrics such as review open rate, completion, corrected mistake percentage, repeat mistake rate, D7/D14 retention, and weekly review sessions."
 
@@ -159,9 +163,18 @@ const portfolioScopeTerms = [
   "product manager",
   "product management",
   "product operations",
+  "product analyst",
   "professional",
   "background",
   "apm",
+  "candidate",
+  "hire",
+  "hiring",
+  "recruiter",
+  "recruit",
+  "fit",
+  "role",
+  "opportunity",
   "unacademy",
   "infosys",
   "patent",
@@ -206,6 +219,7 @@ export function getLocalPortfolioAnswer(question: string) {
 
   if (!isPortfolioQuestion(question)) return OUT_OF_SCOPE_RESPONSE
   if (unknownPersonalTerms.some((term) => hasSearchTerm(normalized, term))) return UNKNOWN_RESPONSE
+  if (normalized.includes("hire") || normalized.includes("recruit") || normalized.includes("fit") || normalized.includes("role") || normalized.includes("opportunit")) return RECRUITER_RESPONSE
   if (normalized.includes("summar") || normalized.includes("overview")) return SUMMARY_RESPONSE
   if (normalized.includes("case") || normalized.includes("mistake") || normalized.includes("airlearn")) return CASE_STUDY_RESPONSE
   if (normalized.includes("skill") || normalized.includes("pm") || normalized.includes("product manager")) return SKILLS_RESPONSE
