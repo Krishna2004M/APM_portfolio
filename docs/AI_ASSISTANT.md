@@ -2,7 +2,7 @@
 
 ## Summary
 
-The portfolio includes a floating AI assistant that helps visitors explore Krishna's profile, product work, case study, skills, experience, education, CV, and contact details. It opens once per browser session with a welcome message and keeps conversation history only in `sessionStorage`.
+The portfolio includes a floating AI assistant that helps visitors explore Krishna's professional profile, career, product work, case study, skills, experience, education, CV, and contact details. It opens once per browser session with a welcome message and keeps conversation history only in `sessionStorage`.
 
 ## User Experience
 
@@ -21,9 +21,10 @@ The portfolio includes a floating AI assistant that helps visitors explore Krish
 
 ## Scope Rules
 
-The assistant only answers questions about Krishna and approved portfolio content:
+The assistant only answers questions about Krishna's professional and career information from approved portfolio content:
 
 - Profile
+- Career
 - Experience
 - Education
 - Product skills
@@ -49,6 +50,7 @@ The API uses an API-first guarded answer flow:
 - A local scope guard decides whether a question is about Krishna's professional portfolio.
 - Accepted questions are answered with the OpenAI Responses API when `OPENAI_API_KEY` is available.
 - If the OpenAI key is missing or the provider call fails, the route still returns a curated portfolio answer instead of failing.
+- Unrelated or personal questions are refused before they reach the answer model.
 - Scope filtering happens locally to avoid an extra classifier call.
 - Default answer model: `gpt-5.4-nano`
 - Optional override: set `PORTFOLIO_ASSISTANT_MODEL` to another Responses API text model if more quality is needed.
@@ -75,6 +77,7 @@ For production hosting, add `OPENAI_API_KEY` in the hosting provider's environme
 Accept:
 
 - Professional profile and background
+- Career questions connected to Krishna's APM, Product Analyst, AI product, and learning-tech direction
 - Recruiter-fit questions for APM and Product Analyst roles
 - Education, degrees, CGPA, and college details
 - Product operations experience at Airlearn
