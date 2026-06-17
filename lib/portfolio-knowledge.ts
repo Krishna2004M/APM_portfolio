@@ -151,6 +151,16 @@ const portfolioScopeTerms = [
   "skill",
   "experience",
   "education",
+  "qualification",
+  "qualifications",
+  "qualified",
+  "degree",
+  "btech",
+  "b.tech",
+  "diploma",
+  "cgpa",
+  "college",
+  "university",
   "project",
   "work",
   "cv",
@@ -229,7 +239,7 @@ export function getLocalPortfolioAnswer(question: string) {
   if (normalized.includes("skill") || normalized.includes("pm") || normalized.includes("product manager")) return SKILLS_RESPONSE
   if (normalized.includes("experience") || normalized.includes("intern") || normalized.includes("unacademy") || normalized.includes("infosys")) return EXPERIENCE_RESPONSE
   if (normalized.includes("support") || normalized.includes("project") || normalized.includes("work") || normalized.includes("patent") || normalized.includes("nibbler") || normalized.includes("nlp")) return SUPPORTING_WORK_RESPONSE
-  if (normalized.includes("education") || normalized.includes("college") || normalized.includes("university") || normalized.includes("cgpa") || normalized.includes("diploma")) return EDUCATION_RESPONSE
+  if (normalized.includes("education") || normalized.includes("qualification") || normalized.includes("qualified") || normalized.includes("degree") || normalized.includes("btech") || normalized.includes("b.tech") || normalized.includes("college") || normalized.includes("university") || normalized.includes("cgpa") || normalized.includes("diploma")) return EDUCATION_RESPONSE
   if (normalized.includes("cv") || normalized.includes("resume") || normalized.includes("contact") || normalized.includes("email") || normalized.includes("linkedin") || normalized.includes("github")) return CONTACT_RESPONSE
   if (normalized.includes("navigate") || normalized.includes("where") || normalized.includes("section")) return NAVIGATION_RESPONSE
 

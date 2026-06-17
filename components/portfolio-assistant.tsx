@@ -105,7 +105,14 @@ function getActions(prompt: string): NavAction[] {
     return [{ label: "View supporting work", href: "/work", icon: BriefcaseBusiness }]
   }
 
-  if (value.includes("education")) {
+  if (
+    value.includes("education") ||
+    value.includes("qualification") ||
+    value.includes("degree") ||
+    value.includes("college") ||
+    value.includes("cgpa") ||
+    value.includes("diploma")
+  ) {
     return [{ label: "About Krishna", href: "/about", icon: GraduationCap }]
   }
 

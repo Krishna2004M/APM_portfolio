@@ -79,7 +79,7 @@ Accept:
 - Professional profile and background
 - Career questions connected to Krishna's APM, Product Analyst, AI product, and learning-tech direction
 - Recruiter-fit questions for APM and Product Analyst roles
-- Education, degrees, CGPA, and college details
+- Education, qualification, degrees, CGPA, and college details
 - Product operations experience at Airlearn
 - Infosys AI internship
 - Product management skills connected to Krishna
