@@ -17,7 +17,6 @@ Personal portfolio for M Krishna, focused on Associate Product Manager and Produ
 - `/case-study` - Airlearn Mistakes Review product case study.
 - `/work` - Supporting AI, safety, and NLP work.
 - `/about` - Skills, competencies, and contact details.
-- `/api/chat` - Guarded portfolio assistant API.
 
 ## Local Setup
 
@@ -26,22 +25,9 @@ corepack pnpm@10 install
 corepack pnpm@10 dev
 ```
 
-Create `.env.local` for local assistant responses:
-
-```bash
-OPENAI_API_KEY=your_openai_api_key_here
-PORTFOLIO_ASSISTANT_MODEL=gpt-5.4-nano
-```
-
-`.env.local` is ignored by Git. Never commit API keys.
-
 ## Checks
 
 ```bash
 corepack pnpm@10 build
 corepack pnpm@10 lint
 ```
-
-## Assistant
-
-The floating portfolio assistant answers only from approved portfolio knowledge. It uses a low-cost default model with curated local fallback responses. See [docs/AI_ASSISTANT.md](docs/AI_ASSISTANT.md).
