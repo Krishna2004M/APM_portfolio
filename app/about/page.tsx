@@ -26,8 +26,8 @@ const competencies: Array<{
   icon: LucideIcon
 }> = [
   {
-    t: "I evaluate AI outputs",
-    d: "From AI-safety work to model evaluation, I can judge whether model output is useful, safe, and trustworthy.",
+    t: "I turn ideas into shipped products",
+    d: "Emoline moved from problem framing and PRD to build, Google Play closed testing, and a v1.0.1 feedback iteration.",
     icon: BrainCircuit,
   },
   {
@@ -36,13 +36,13 @@ const competencies: Array<{
     icon: Route,
   },
   {
-    t: "I understand learning-product quality",
-    d: "Hands-on QC of lesson flows, scripts, and modules, knowing what release ready really means.",
+    t: "I own release readiness",
+    d: "At Airlearn, I coordinate raw content through design, voiceover, QA, and publishing across four cross-functional teams.",
     icon: GraduationCap,
   },
   {
     t: "I think in metrics",
-    d: "I frame features around activation, engagement, retention, and learning outcomes.",
+    d: "I frame products around activation, D1/D7/D30 retention, engagement, and drop-off signals.",
     icon: BarChart3,
   },
   {
@@ -86,6 +86,9 @@ const skillCategories = [
     label: "Product",
     skills: [
       "Product Thinking",
+      "MVP Scoping",
+      "Product Requirements",
+      "Cross-Functional Collaboration",
       "User Journey Mapping",
       "UX Review",
       "Feature Prioritization",
@@ -117,7 +120,16 @@ const skillCategories = [
   },
   {
     label: "Tools",
-    skills: ["Figma", "Streamlit", "GitHub", "OpenAI API", "Hugging Face", "Ollama"],
+    skills: [
+      "Figma",
+      "Streamlit",
+      "GitHub",
+      "OpenAI API",
+      "Hugging Face",
+      "Ollama",
+      "React Native",
+      "Supabase",
+    ],
   },
 ]
 
@@ -144,8 +156,8 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-10 max-w-2xl font-serif text-xl leading-[1.4] tracking-tight text-muted-foreground md:text-2xl">
-              I&apos;m early in my product career, but my work in AI-enabled learning has shaped a
-              clear way of thinking about products.
+              I&apos;m early in my product career, but I&apos;ve already owned release workflows,
+              written product requirements, and shipped a consumer app into closed testing.
             </p>
           </Reveal>
         </div>
@@ -229,7 +241,8 @@ export default function AboutPage() {
           </h2>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
             I&apos;m looking for Associate Product Manager and Product Analyst opportunities,
-            especially in AI products and learning tech. Happy to walk through the case study.
+            especially across AI products, HR tech, B2B SaaS, and learning tech. Happy to walk
+            through the Emoline case study.
           </p>
 
           <div className="mt-10">

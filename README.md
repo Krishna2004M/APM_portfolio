@@ -1,6 +1,6 @@
 # M Krishna Portfolio
 
-Personal portfolio for M Krishna, focused on Associate Product Manager and Product Analyst roles in AI products, learning technology, and product operations.
+Personal portfolio for M Krishna, focused on Associate Product Manager and Product Analyst roles across product operations, shipped products, AI products, HR tech, B2B SaaS, and learning technology.
 
 Live site: [krishna-apm-portfolio-olive.vercel.app](https://krishna-apm-portfolio-olive.vercel.app/)
 
@@ -16,7 +16,7 @@ Live site: [krishna-apm-portfolio-olive.vercel.app](https://krishna-apm-portfoli
 ## Main Routes
 
 - `/` - Portfolio home and featured case study.
-- `/case-study` - Airlearn Mistakes Review product case study.
+- `/case-study` - Emoline journaling app product case study.
 - `/work` - Supporting AI, safety, and NLP work.
 - `/about` - Skills, competencies, and contact details.
 

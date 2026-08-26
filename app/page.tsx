@@ -10,17 +10,17 @@ const proofCards = [
   {
     tag: "Product Operations",
     title: "Airlearn Product Operations",
-    desc: "Learning-product QC and release readiness, reviewing lesson flows, scripts, and modules before they go live.",
+    desc: "End-to-end lesson production and release ownership across Educator, Design, Creation, and Technical teams.",
+  },
+  {
+    tag: "Shipped Product",
+    title: "Emoline Journaling App",
+    desc: "Consumer app taken from PRD through build, Google Play closed testing, and v1.0.1 feedback iteration.",
   },
   {
     tag: "AI Safety",
     title: "Google Adversarial Nibbler",
     desc: "AI safety and model-output evaluation, probing generative models for harmful and unsafe outputs.",
-  },
-  {
-    tag: "AI Projects",
-    title: "AI Product Projects",
-    desc: "Brain tumor detection and NLP research, applying AI to real problems with a user-and-impact lens.",
   },
 ]
 
@@ -74,7 +74,7 @@ export default function HomePage() {
                 M <span className="italic">Krishna</span>
               </h1>
               <p className="mt-6 max-w-full text-balance text-base font-medium uppercase leading-relaxed tracking-[0.18em] text-primary sm:text-lg sm:tracking-[0.24em] md:text-xl">
-                APM, AI Products, Learning Tech
+                APM, Product Operations, Shipped Products
               </p>
             </Reveal>
             <Reveal delay={200} className="md:col-span-3 md:flex md:justify-end">
@@ -86,9 +86,9 @@ export default function HomePage() {
 
           <Reveal delay={300} className="mt-14 grid min-w-0 gap-10 md:mt-16 md:grid-cols-12">
             <p className="min-w-0 max-w-full text-pretty font-serif text-xl leading-[1.45] tracking-tight text-foreground sm:text-2xl md:col-span-8 md:text-3xl">
-              Associate Product Manager focused on AI-enabled language learning, with hands-on
-              product-operations experience. I review learner flows, Figma lesson modules, scripts,
-              content quality, and release readiness to improve product experience.
+              Associate Product Manager candidate with hands-on product operations at Airlearn and
+              shipped product experience through Emoline, a journaling app taken from PRD to Google
+              Play closed testing.
             </p>
           </Reveal>
 
@@ -131,9 +131,9 @@ export default function HomePage() {
               <span key={i} className="flex items-center">
                 <span className="px-8">Product Thinking</span>
                 <span className="px-8 text-primary">/</span>
-                <span className="px-8 italic">AI Safety</span>
+                <span className="px-8 italic">PRDs</span>
                 <span className="px-8 text-primary">/</span>
-                <span className="px-8">Learning Outcomes</span>
+                <span className="px-8">Closed Testing</span>
                 <span className="px-8 text-primary">/</span>
                 <span className="px-8 italic">Retention</span>
                 <span className="px-8 text-primary">/</span>
@@ -163,19 +163,19 @@ export default function HomePage() {
 
               <div className="md:col-span-7">
                 <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                  Language Learning and EdTech
+                  Consumer Product and Habit Formation
                 </p>
                 <h2 className="mt-6 font-serif text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl">
-                  Mistakes Review Feature
+                  Emoline
                   <br />
-                  <span className="italic">for Airlearn</span>
+                  <span className="italic">Journaling App</span>
                 </h2>
                 <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
-                  A product case study on improving language-learning retention through
-                  personalized mistake review, spaced repetition, and feedback loops.
+                  A product case study on taking a simple emotion journaling app from problem
+                  framing and PRD to Google Play closed testing and post-launch iteration.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-2">
-                  {["Problem framing", "User flow", "MVP scope", "Metrics", "A/B test"].map(
+                  {["PRD", "MVP scope", "React Native", "Supabase", "Closed testing"].map(
                     (tag) => (
                       <span
                         key={tag}
@@ -194,10 +194,10 @@ export default function HomePage() {
 
               <div className="grid grid-cols-2 gap-px border border-border bg-border md:col-span-5 md:self-stretch">
                 {[
-                  { k: "Role", v: "Product thinking & feature proposal" },
-                  { k: "Domain", v: "Language learning and EdTech" },
-                  { k: "Focus", v: "Retention & feedback loops" },
-                  { k: "Output", v: "MVP scope, metrics, A/B hypothesis" },
+                  { k: "Role", v: "Problem framing, PRD, MVP scope" },
+                  { k: "Domain", v: "Consumer journaling and habit formation" },
+                  { k: "Focus", v: "Activation, retention, and feedback iteration" },
+                  { k: "Output", v: "v1.0.0 closed test and v1.0.1 iteration" },
                 ].map((item) => (
                   <div key={item.k} className="flex flex-col justify-between bg-card p-5">
                     <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
@@ -224,8 +224,8 @@ export default function HomePage() {
                   <span className="italic text-primary">product thinking</span>
                 </h2>
                 <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-                  Three experiences that ground how I evaluate AI products, learning quality, and
-                  user value.
+                  Three experiences that ground how I scope products, coordinate releases, evaluate
+                  AI, and use feedback to improve product quality.
                 </p>
               </div>
             </div>

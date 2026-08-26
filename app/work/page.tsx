@@ -1,6 +1,6 @@
 import Link from "next/link"
 import type { ReactNode } from "react"
-import { ArrowRight, Languages, Microscope, ShieldAlert, type LucideIcon } from "lucide-react"
+import { ArrowRight, Languages, Microscope, ShieldAlert, Smartphone, type LucideIcon } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { HoverDot } from "@/components/hover-dot"
 import { SectionLabel } from "@/components/section-label"
@@ -8,7 +8,7 @@ import { SectionLabel } from "@/components/section-label"
 export const metadata = {
   title: "Supporting Work, M Krishna",
   description:
-    "Supporting AI product, AI safety, and NLP research work that grounds M Krishna's product thinking.",
+    "Shipped product, AI product, AI safety, and NLP research work that grounds M Krishna's product thinking.",
 }
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
@@ -33,6 +33,40 @@ function ProjectIcon({ icon: Icon }: { icon: LucideIcon }) {
 const projects = [
   {
     n: "01",
+    icon: Smartphone,
+    category: "Shipped Product",
+    badge: "Google Play Closed Testing, Aug 2026",
+    title: "Emoline Consumer Journaling App",
+    fields: [
+      {
+        label: "Problem",
+        body: "Traditional journaling often asks too much from users at the moment they are trying to build a habit.",
+      },
+      {
+        label: "Product decision",
+        body: "Scoped the core behavior to one emotion plus one sentence daily, keeping AI and chat out of V1 to isolate the behavioral hypothesis.",
+      },
+      {
+        label: "Role",
+        body: "Defined the problem, wrote the PRD, selected React Native, Expo, and Supabase, and directed the build from spec to launch.",
+      },
+      {
+        label: "Launch",
+        body: "Shipped v1.0.0 to Google Play closed testing and released v1.0.1 after incorporating tester feedback in the same test cycle.",
+      },
+      {
+        label: "Metrics",
+        body: "Defined first-entry completion, D1/D7/D30 retention, and daily entry completion as early product engagement signals.",
+      },
+      {
+        label: "Product lesson",
+        body: "A strong MVP is not the smallest build. It is the smallest test that can teach whether the product behavior is worth scaling.",
+      },
+    ],
+    tags: ["PRD", "React Native", "Expo", "Supabase", "Closed Testing"],
+  },
+  {
+    n: "02",
     icon: Microscope,
     category: "AI Product",
     badge: "Provisional Patent Filed, Nov 2025",
@@ -66,7 +100,7 @@ const projects = [
     tags: ["MONAI U-Net", "GenAI Reports", "Streamlit", "Dice Score"],
   },
   {
-    n: "02",
+    n: "03",
     icon: ShieldAlert,
     category: "AI Safety",
     badge: "~150 selected from 7,000+ applicants, Jan 2025",
@@ -96,7 +130,7 @@ const projects = [
     tags: [] as string[],
   },
   {
-    n: "03",
+    n: "04",
     icon: Languages,
     category: "NLP Research",
     badge: "Published and Presented, Dec 2024",
@@ -149,8 +183,8 @@ export default function WorkPage() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-10 max-w-2xl font-serif text-2xl leading-[1.4] tracking-tight text-muted-foreground md:text-3xl">
-              These projects support the main case study. Each is framed as a product story: the
-              problem, the user, and what I learned, rather than as a list of technical achievements.
+              These projects show how I move from problem framing to shipping, evaluation, and
+              learning. Each is framed as a product story: the problem, the user, and what I learned.
             </p>
           </Reveal>
         </div>
@@ -226,8 +260,8 @@ export default function WorkPage() {
       <section className="border-b border-border">
         <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-8 px-6 py-20 sm:flex-row sm:items-center sm:justify-between md:px-10">
           <p className="max-w-md font-serif text-2xl leading-[1.3] tracking-tight text-foreground md:text-3xl">
-            The strongest expression of this thinking is the{" "}
-            <span className="italic text-primary">Airlearn case study.</span>
+            The clearest end-to-end product story is the{" "}
+            <span className="italic text-primary">Emoline case study.</span>
           </p>
           <Link
             href="/case-study"

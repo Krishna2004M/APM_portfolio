@@ -19,13 +19,13 @@ const newsreader = Newsreader({
 })
 
 export const metadata: Metadata = {
-  title: 'M Krishna, APM, AI Products, Learning Tech',
+  title: 'M Krishna, APM, Product Operations, Shipped Products',
   description:
-    'Product portfolio of M Krishna, an Associate Product Manager focused on AI-enabled language learning with hands-on product-operations experience. Featuring the Mistakes Review case study for Airlearn.',
+    'Product portfolio of M Krishna, an Associate Product Manager candidate with product-operations experience at Airlearn and shipped product work on Emoline.',
   openGraph: {
-    title: 'M Krishna, APM, AI Products, Learning Tech',
+    title: 'M Krishna, APM, Product Operations, Shipped Products',
     description:
-      'Product portfolio of M Krishna, an Associate Product Manager focused on AI-enabled language learning with hands-on product-operations experience.',
+      'Product portfolio of M Krishna, an Associate Product Manager candidate with product-operations experience at Airlearn and shipped product work on Emoline.',
     url: 'https://krishna-apm-portfolio-olive.vercel.app',
     siteName: 'M Krishna Portfolio',
     images: [
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'M Krishna, APM, AI Products, Learning Tech',
+    title: 'M Krishna, APM, Product Operations, Shipped Products',
     description:
-      'Product portfolio of M Krishna, an Associate Product Manager focused on AI-enabled language learning with hands-on product-operations experience.',
+      'Product portfolio of M Krishna, an Associate Product Manager candidate with product-operations experience at Airlearn and shipped product work on Emoline.',
     images: ['https://krishna-apm-portfolio-olive.vercel.app/icon.svg'],
   },
 }
