@@ -2,6 +2,8 @@
 
 Personal portfolio for M Krishna, focused on Associate Product Manager and Product Analyst roles in AI products, learning technology, and product operations.
 
+Live site: [krishna-apm-portfolio-olive.vercel.app](https://krishna-apm-portfolio-olive.vercel.app/)
+
 ## What Is Included
 
 - `app/` - Next.js App Router pages and API routes.

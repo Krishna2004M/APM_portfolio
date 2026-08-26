@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     title: 'M Krishna, APM, AI Products, Learning Tech',
     description:
       'Product portfolio of M Krishna, an Associate Product Manager focused on AI-enabled language learning with hands-on product-operations experience.',
-    url: 'https://v0-mkrishna.vercel.app',
+    url: 'https://krishna-apm-portfolio-olive.vercel.app',
     siteName: 'M Krishna Portfolio',
     images: [
       {
-        url: 'https://v0-mkrishna.vercel.app/icon.svg',
+        url: 'https://krishna-apm-portfolio-olive.vercel.app/icon.svg',
         width: 1200,
         height: 630,
         alt: 'M Krishna APM Portfolio',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: 'M Krishna, APM, AI Products, Learning Tech',
     description:
       'Product portfolio of M Krishna, an Associate Product Manager focused on AI-enabled language learning with hands-on product-operations experience.',
-    images: ['https://v0-mkrishna.vercel.app/icon.svg'],
+    images: ['https://krishna-apm-portfolio-olive.vercel.app/icon.svg'],
   },
 }
 
@@ -89,7 +89,7 @@ export default function RootLayout({
               '@type': 'Person',
               name: 'M Krishna',
               jobTitle: 'Associate Product Manager',
-              url: 'https://v0-mkrishna.vercel.app',
+              url: 'https://krishna-apm-portfolio-olive.vercel.app',
               sameAs: [
                 'https://linkedin.com/in/m-krishna-krishna',
                 'https://github.com/Krishna2004M',
