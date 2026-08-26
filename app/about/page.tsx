@@ -247,8 +247,8 @@ export default function AboutPage() {
 
           <div className="mt-10">
             <a
-              href="/M_Krishna_Product_APM_CV.pdf"
-              download="M_Krishna_Product_APM_CV.pdf"
+              href="/M%20Krishna%20APM%20CV.pdf"
+              download="M Krishna APM CV.pdf"
               className="hover-pop group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90"
             >
               <Download className="size-4" />

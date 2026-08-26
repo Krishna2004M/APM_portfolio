@@ -31,10 +31,10 @@ const heroLinks: Array<{
   download?: string
 }> = [
   {
-    href: "/M_Krishna_Product_APM_CV.pdf",
+    href: "/M%20Krishna%20APM%20CV.pdf",
     label: "Download CV",
     icon: Download,
-    download: "M_Krishna_Product_APM_CV.pdf",
+    download: "M Krishna APM CV.pdf",
   },
   { href: "https://linkedin.com/in/m-krishna-krishna", label: "LinkedIn", icon: LinkedinIcon },
   { href: "https://github.com/Krishna2004M", label: "GitHub", icon: GithubIcon },
