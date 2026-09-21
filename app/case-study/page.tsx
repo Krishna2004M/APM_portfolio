@@ -147,12 +147,6 @@ export default function CaseStudyPage() {
                 className="h-auto w-full"
               />
             </div>
-            <div className="mt-4 border border-border bg-background p-4">
-              <p className="font-serif text-2xl font-medium leading-none text-foreground">Emoline</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                Android journaling app
-              </p>
-            </div>
           </div>
         </div>
 
