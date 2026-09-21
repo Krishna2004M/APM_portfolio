@@ -27,7 +27,7 @@ const competencies: Array<{
 }> = [
   {
     t: "I turn ideas into shipped products",
-    d: "Emoline moved from problem framing and PRD to build, Google Play closed testing, and a v1.0.1 feedback iteration.",
+    d: "Emoline moved from problem framing and PRD to build, closed testing, and production launch on Google Play.",
     icon: BrainCircuit,
   },
   {
@@ -157,7 +157,7 @@ export default function AboutPage() {
           <Reveal delay={200}>
             <p className="mt-10 max-w-2xl font-serif text-xl leading-[1.4] tracking-tight text-muted-foreground md:text-2xl">
               I&apos;m early in my product career, but I&apos;ve already owned release workflows,
-              written product requirements, and shipped a consumer app into closed testing.
+              written product requirements, and shipped a consumer app to Google Play.
             </p>
           </Reveal>
         </div>

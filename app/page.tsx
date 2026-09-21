@@ -15,7 +15,7 @@ const proofCards = [
   {
     tag: "Shipped Product",
     title: "Emoline Journaling App",
-    desc: "Consumer app taken from PRD through build, Google Play closed testing, and v1.0.1 feedback iteration.",
+    desc: "Consumer app taken from PRD through closed testing to a production launch on Google Play.",
   },
   {
     tag: "AI Safety",
@@ -87,8 +87,8 @@ export default function HomePage() {
           <Reveal delay={300} className="mt-14 grid min-w-0 gap-10 md:mt-16 md:grid-cols-12">
             <p className="min-w-0 max-w-full text-pretty font-serif text-xl leading-[1.45] tracking-tight text-foreground sm:text-2xl md:col-span-8 md:text-3xl">
               Associate Product Manager candidate with hands-on product operations at Airlearn and
-              shipped product experience through Emoline, a journaling app taken from PRD to Google
-              Play closed testing.
+              shipped product experience through Emoline, a journaling app taken from PRD to a
+              production launch on Google Play.
             </p>
           </Reveal>
 
@@ -172,10 +172,10 @@ export default function HomePage() {
                 </h2>
                 <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
                   A product case study on taking a simple emotion journaling app from problem
-                  framing and PRD to Google Play closed testing and post-launch iteration.
+                  framing and PRD to Google Play launch, metrics, and next experiments.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-2">
-                  {["PRD", "MVP scope", "React Native", "Supabase", "Closed testing"].map(
+                  {["PRD", "User flow", "Closed testing", "Google Play", "Metrics"].map(
                     (tag) => (
                       <span
                         key={tag}
@@ -197,7 +197,7 @@ export default function HomePage() {
                   { k: "Role", v: "Problem framing, PRD, MVP scope" },
                   { k: "Domain", v: "Consumer journaling and habit formation" },
                   { k: "Focus", v: "Activation, retention, and feedback iteration" },
-                  { k: "Output", v: "v1.0.0 closed test and v1.0.1 iteration" },
+                  { k: "Output", v: "Production launch and real-user learning" },
                 ].map((item) => (
                   <div key={item.k} className="flex flex-col justify-between bg-card p-5">
                     <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground">

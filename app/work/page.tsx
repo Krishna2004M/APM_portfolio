@@ -35,7 +35,7 @@ const projects = [
     n: "01",
     icon: Smartphone,
     category: "Shipped Product",
-    badge: "Google Play Closed Testing, Aug 2026",
+    badge: "Live on Google Play",
     title: "Emoline Consumer Journaling App",
     fields: [
       {
@@ -52,7 +52,7 @@ const projects = [
       },
       {
         label: "Launch",
-        body: "Shipped v1.0.0 to Google Play closed testing and released v1.0.1 after incorporating tester feedback in the same test cycle.",
+        body: "Moved the app through a 15-day Google Play closed test with 12 testers, then launched the first production release on Google Play.",
       },
       {
         label: "Metrics",
@@ -63,7 +63,7 @@ const projects = [
         body: "A strong MVP is not the smallest build. It is the smallest test that can teach whether the product behavior is worth scaling.",
       },
     ],
-    tags: ["PRD", "React Native", "Expo", "Supabase", "Closed Testing"],
+    tags: ["PRD", "User Flow", "Closed Testing", "Google Play", "Metrics"],
   },
   {
     n: "02",
