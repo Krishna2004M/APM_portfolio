@@ -192,20 +192,31 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-px border border-border bg-border md:col-span-5 md:self-stretch">
-                {[
-                  { k: "Role", v: "Problem framing, PRD, MVP scope" },
-                  { k: "Domain", v: "Consumer journaling and habit formation" },
-                  { k: "Focus", v: "Activation, retention, and feedback iteration" },
-                  { k: "Output", v: "Production launch and real-user learning" },
-                ].map((item) => (
-                  <div key={item.k} className="flex flex-col justify-between bg-card p-5">
-                    <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
-                      {item.k}
-                    </p>
-                    <p className="mt-6 text-sm leading-snug text-foreground">{item.v}</p>
+              <div className="md:col-span-5 md:self-stretch">
+                <div className="flex h-full flex-col justify-between border border-border bg-card p-5">
+                  <div className="mx-auto w-full max-w-[280px] overflow-hidden border border-border bg-secondary/40 p-3">
+                    <img
+                      src="/emoline/app-logo.png"
+                      alt="Emoline app logo"
+                      className="h-auto w-full"
+                    />
                   </div>
-                ))}
+                  <div className="mt-6 grid gap-px border border-border bg-border sm:grid-cols-2">
+                    {[
+                      { k: "Role", v: "Product owner and builder" },
+                      { k: "Status", v: "Live on Google Play" },
+                      { k: "Flow", v: "Mood, memory, calendar, insights" },
+                      { k: "Focus", v: "Activation and retention" },
+                    ].map((item) => (
+                      <div key={item.k} className="flex flex-col justify-between bg-background p-4">
+                        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                          {item.k}
+                        </p>
+                        <p className="mt-4 text-sm leading-snug text-foreground">{item.v}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </Link>
           </Reveal>
