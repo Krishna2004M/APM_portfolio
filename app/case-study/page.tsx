@@ -139,25 +139,20 @@ export default function CaseStudyPage() {
             </div>
           </div>
 
-          <div className="case-panel mx-auto w-full max-w-[320px] border border-border bg-card p-3 shadow-2xl">
-            <div className="mb-3 flex items-center gap-3 border border-border bg-background p-3">
+          <div className="case-panel mx-auto w-full max-w-[360px] border border-border bg-card p-5 shadow-2xl">
+            <div className="overflow-hidden border border-border bg-secondary/40 p-4">
               <img
                 src="/emoline/app-logo.png"
                 alt="Emoline app logo"
-                className="size-14 shrink-0 border border-border"
+                className="h-auto w-full"
               />
-              <div className="min-w-0">
-                <p className="font-serif text-xl font-medium leading-none text-foreground">Emoline</p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                  Android app
-                </p>
-              </div>
             </div>
-            <img
-              src="/emoline/emoline-03-daily-entry.png"
-              alt="Emoline daily entry screen showing mood selection and one sentence input"
-              className="h-auto w-full"
-            />
+            <div className="mt-4 border border-border bg-background p-4">
+              <p className="font-serif text-2xl font-medium leading-none text-foreground">Emoline</p>
+              <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                Android journaling app
+              </p>
+            </div>
           </div>
         </div>
 
