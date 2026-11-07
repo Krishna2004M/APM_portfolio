@@ -1,6 +1,6 @@
 import Link from "next/link"
 import type { ReactNode } from "react"
-import { ArrowRight, Languages, Microscope, ShieldAlert, Smartphone, type LucideIcon } from "lucide-react"
+import { ArrowRight, ExternalLink, Languages, Microscope, Search, ShieldAlert, Smartphone, Users, type LucideIcon } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { HoverDot } from "@/components/hover-dot"
 import { SectionLabel } from "@/components/section-label"
@@ -64,9 +64,66 @@ const projects = [
       },
     ],
     tags: ["PRD", "User Flow", "Closed Testing", "Google Play", "Metrics"],
+    links: [{ label: "Read case study", href: "/case-study" }],
   },
   {
     n: "02",
+    icon: Search,
+    category: "Product Discovery and UX",
+    badge: "Prototype",
+    title: "SuperKalam Reattempt",
+    fields: [
+      { label: "Discovery", body: "Explored the SuperKalam app over three days and spoke with two UPSC aspirants through social media to understand how they use written-answer practice and AI evaluation." },
+      { label: "Problem", body: "Learners received detailed AI feedback after an answer, but had no clear loop to apply that feedback, retry the question, or see whether their answer had improved." },
+      { label: "Product decision", body: "Proposed Reattempt on the home experience: after a lower-scoring attempt, learners can use the evaluation guidance to try again and compare the new response with their previous score and feedback." },
+      { label: "Supporting ideas", body: "Recommended topic, chapter, and subject filters to reduce browsing, plus predictive question search so learners can find a question they remember from a phrase or keyword." },
+      { label: "Success signals", body: "Proposed tracking reattempt starts and completions, score movement between attempts, and repeat use of filters/search. These are measurement proposals, not claimed results." },
+    ],
+    tags: ["User interviews", "Learning loop", "AI evaluation", "Question discovery"],
+    links: [{ label: "Open prototype", href: "https://superkalam-reattempt.vercel.app/" }],
+  },
+  {
+    n: "03",
+    icon: Users,
+    category: "Product Analyst Assignment",
+    badge: "Interactive prototype",
+    title: "TalentXO Leads Management",
+    fields: [
+      { label: "Problem", body: "Talent Partners share a candidate database across jobs. Without controlled ownership and clear progress, multiple recruiters can duplicate outreach while other leads go untouched or stall." },
+      { label: "Product approach", body: "Designed an end-to-end workflow for discovering relevant candidate-job leads, claiming exclusive ownership, recording outreach and next actions, validating candidate interest and authorization, then submitting or closing with a reason." },
+      { label: "Key decisions", body: "Model a lead as a candidate-job opportunity, not a candidate-wide lock. Separate outreach attempts from confirmed progress, require job-specific consent before submission, and preserve history through reassignment." },
+      { label: "Operations and edge cases", body: "The PRD covers claim capacity and expiry, inactivity recovery, duplicate applications, changing job/candidate eligibility, uncertain submission outcomes, and operational visibility into stalled or disputed leads." },
+      { label: "Success signals", body: "Proposed lead utilization, time to first meaningful contact, stale-lead rate, duplicate outreach, and valid lead-to-application conversion as signals to evaluate after implementation." },
+    ],
+    tags: ["PRD", "Lead lifecycle", "Workflow design", "Business rules", "Prototype"],
+    links: [
+      { label: "Open prototype", href: "https://talentxo-leads-prototype.vercel.app/" },
+      { label: "Read PRD", href: "/talentxo/TalentXO-Leads-Management-PRD.pdf" },
+      { label: "Read assignment", href: "/talentxo/TalentXO-Product-Analyst-Assignment.pdf" },
+    ],
+  },
+  {
+    n: "04",
+    icon: Search,
+    category: "APM Integrations Take-Home",
+    badge: "Working product prototype",
+    title: "Clearance: OAuth Approval Readiness",
+    fields: [
+      { label: "Problem", body: "Agent builders can underestimate the steps, review gates, and provider wait times involved in getting an OAuth app approved, making integration launch plans hard to trust." },
+      { label: "Solution", body: "Built a guide library and live research flow that estimates difficulty and time to production, explains blockers, and turns requirements into an ordered checklist." },
+      { label: "Product decisions", body: "Separate hands-on work from provider waiting; assign an owner to each step (agent, developer, or provider); and make evidence quality visible so sourced facts, probes, and uncertainty are distinguishable." },
+      { label: "Trust and safety", body: "The system link-checks cited sources, runs deterministic OAuth probes, blocks private IPs in fetches, and downgrades unsupported claims instead of presenting model output as verified fact." },
+      { label: "Status", body: "A deployed prototype and public source repository are available. The README describes 12 curated guides and coverage for 402 OAuth toolkits; these are product coverage counts, not user or business impact metrics." },
+    ],
+    tags: ["OAuth", "Integrations", "AI research workflow", "Evidence quality", "Prototype"],
+    links: [
+      { label: "Open prototype", href: "https://clearance-sigma-nine.vercel.app/" },
+      { label: "View source", href: "https://github.com/krishna2004-coder/clearance" },
+      { label: "Read assignment", href: "https://composio.notion.site/APM-Integrations-Take-home-Assignment-3f9f261a6dfe81489ee5e3643151f9d6" },
+    ],
+  },
+  {
+    n: "05",
     icon: Microscope,
     category: "AI Product",
     badge: "Provisional Patent Filed, Nov 2025",
@@ -100,7 +157,7 @@ const projects = [
     tags: ["MONAI U-Net", "GenAI Reports", "Streamlit", "Dice Score"],
   },
   {
-    n: "03",
+    n: "06",
     icon: ShieldAlert,
     category: "AI Safety",
     badge: "~150 selected from 7,000+ applicants, Jan 2025",
@@ -130,7 +187,7 @@ const projects = [
     tags: [] as string[],
   },
   {
-    n: "04",
+    n: "07",
     icon: Languages,
     category: "NLP Research",
     badge: "Published and Presented, Dec 2024",
@@ -245,6 +302,22 @@ export default function WorkPage() {
                               {tag}
                             </span>
                           ))}
+                        </div>
+                      )}
+                      {p.links && (
+                        <div className="mt-8 flex flex-wrap gap-3">
+                          {p.links.map((link) => {
+                            const external = link.href.startsWith("http")
+                            return external ? (
+                              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-4 py-2 text-[10px] font-medium uppercase tracking-[0.18em] text-foreground hover:border-primary hover:text-primary">
+                                {link.label}<ExternalLink className="size-3.5" />
+                              </a>
+                            ) : (
+                              <a key={link.label} href={link.href} className="inline-flex items-center gap-2 border border-border px-4 py-2 text-[10px] font-medium uppercase tracking-[0.18em] text-foreground hover:border-primary hover:text-primary">
+                                {link.label}<ExternalLink className="size-3.5" />
+                              </a>
+                            )
+                          })}
                         </div>
                       )}
                     </div>
