@@ -99,7 +99,6 @@ const projects = [
     links: [
       { label: "Open prototype", href: "https://talentxo-leads-prototype.vercel.app/" },
       { label: "Read PRD", href: "/talentxo/TalentXO-Leads-Management-PRD.pdf" },
-      { label: "Read assignment", href: "/talentxo/TalentXO-Product-Analyst-Assignment.pdf" },
     ],
   },
   {
@@ -119,7 +118,6 @@ const projects = [
     links: [
       { label: "Open prototype", href: "https://clearance-sigma-nine.vercel.app/" },
       { label: "View source", href: "https://github.com/krishna2004-coder/clearance" },
-      { label: "Read assignment", href: "https://composio.notion.site/APM-Integrations-Take-home-Assignment-3f9f261a6dfe81489ee5e3643151f9d6" },
     ],
   },
   {
