@@ -94,10 +94,10 @@ export default function HomePage() {
 
           <Reveal delay={400} className="mt-12 flex flex-wrap items-center gap-3">
             <Link
-              href="/case-study"
+              href="/work"
               className="hover-pop group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90"
             >
-              Read Main Case Study
+              Explore Case Studies
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             {heroLinks.map((item) => {

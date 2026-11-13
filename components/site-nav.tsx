@@ -10,7 +10,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 const links = [
   { href: "/", label: "Home" },
   { href: "/case-study", label: "Case Study" },
-  { href: "/work", label: "Supporting Work" },
+  { href: "/work", label: "Case Studies" },
   { href: "/about", label: "Skills & Contact" },
 ]
 

@@ -6,9 +6,9 @@ import { HoverDot } from "@/components/hover-dot"
 import { SectionLabel } from "@/components/section-label"
 
 export const metadata = {
-  title: "Supporting Work, M Krishna",
+  title: "Product Case Studies, M Krishna",
   description:
-    "Shipped product, AI product, AI safety, and NLP research work that grounds M Krishna's product thinking.",
+    "Product case studies by M Krishna, covering discovery, product strategy, workflow design, prototypes, and shipped work.",
 }
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
@@ -85,8 +85,8 @@ const projects = [
   {
     n: "03",
     icon: Users,
-    category: "Product Analyst Assignment",
-    badge: "Interactive prototype",
+    category: "Recruitment Product Design",
+    badge: "Prototype and PRD",
     title: "TalentXO Leads Management",
     fields: [
       { label: "Problem", body: "Talent Partners share a candidate database across jobs. Without controlled ownership and clear progress, multiple recruiters can duplicate outreach while other leads go untouched or stall." },
@@ -104,7 +104,7 @@ const projects = [
   {
     n: "04",
     icon: Search,
-    category: "APM Integrations Take-Home",
+    category: "OAuth Integration Research",
     badge: "Working product prototype",
     title: "Clearance: OAuth Approval Readiness",
     fields: [
@@ -227,19 +227,19 @@ export default function WorkPage() {
         </div>
         <div className="mx-auto max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pt-48">
           <Reveal>
-            <SectionLabel accent>Supporting Work</SectionLabel>
+            <SectionLabel accent>Selected Product Case Studies</SectionLabel>
           </Reveal>
           <Reveal delay={100}>
             <h1 className="mt-8 max-w-5xl font-serif text-[clamp(56px,11vw,160px)] font-medium leading-[0.92] tracking-[-0.025em] text-foreground">
-              Supporting
+              Product
               <br />
-              <span className="italic">work</span>
+              <span className="italic">case studies</span>
             </h1>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-10 max-w-2xl font-serif text-2xl leading-[1.4] tracking-tight text-muted-foreground md:text-3xl">
-              These projects show how I move from problem framing to shipping, evaluation, and
-              learning. Each is framed as a product story: the problem, the user, and what I learned.
+              A closer look at how I explore user problems, make product decisions, shape workflows,
+              and define what success should mean.
             </p>
           </Reveal>
         </div>
@@ -331,14 +331,13 @@ export default function WorkPage() {
       <section className="border-b border-border">
         <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-8 px-6 py-20 sm:flex-row sm:items-center sm:justify-between md:px-10">
           <p className="max-w-md font-serif text-2xl leading-[1.3] tracking-tight text-foreground md:text-3xl">
-            The clearest end-to-end product story is the{" "}
-            <span className="italic text-primary">Emoline case study.</span>
+            Start with the most complete shipped-product story: <span className="italic text-primary">Emoline.</span>
           </p>
           <Link
             href="/case-study"
             className="hover-pop group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90"
           >
-            Read the case study
+            Explore Emoline
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
