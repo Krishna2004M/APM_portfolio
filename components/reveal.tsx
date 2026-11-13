@@ -8,11 +8,13 @@ export function Reveal({
   as: Comp = "div",
   className,
   delay,
+  id,
   children,
 }: {
   as?: "div" | "section" | "article" | "header"
   className?: string
   delay?: 100 | 200 | 300 | 400
+  id?: string
   children: ReactNode
 }) {
   const [ref, isInView] = useInView<HTMLElement>()
@@ -20,6 +22,7 @@ export function Reveal({
   return (
     <Comp
       ref={ref as Ref<any>}
+      id={id}
       className={cn(
         "opacity-0",
         isInView && "animate-fade-in-up",

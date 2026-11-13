@@ -255,6 +255,7 @@ export default function WorkPage() {
                 <Reveal
                   key={p.title}
                   as="article"
+                  id={p.title.includes("SuperKalam") ? "superkalam" : p.title.includes("TalentXO") ? "talentxo" : p.title.startsWith("Clearance") ? "clearance" : undefined}
                   delay={idx === 0 ? 100 : idx === 1 ? 200 : 300}
                   className="bg-background"
                 >

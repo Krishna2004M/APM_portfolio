@@ -5,6 +5,7 @@ import { LinkedinIcon, GithubIcon } from "@/components/brand-icons"
 import { Reveal } from "@/components/reveal"
 import { HoverDot } from "@/components/hover-dot"
 import { SectionLabel } from "@/components/section-label"
+import { FeaturedProjectCarousel } from "@/components/featured-project-carousel"
 
 const proofCards = [
   {
@@ -147,78 +148,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FEATURED CASE STUDY */}
+      {/* FEATURED WORK */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
           <Reveal>
-            <SectionLabel accent>Featured Case Study</SectionLabel>
+            <SectionLabel accent>Featured Work</SectionLabel>
           </Reveal>
-
           <Reveal delay={100}>
-            <Link
-              href="/case-study"
-              className="hover-pop glass-surface group relative mt-12 grid gap-10 border border-border p-8 hover:border-primary md:grid-cols-12 md:gap-16 md:p-12 lg:p-16"
-            >
-              <HoverDot />
-
-              <div className="md:col-span-7">
-                <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                  Consumer Product and Habit Formation
-                </p>
-                <h2 className="mt-6 font-serif text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl">
-                  Emoline
-                  <br />
-                  <span className="italic">Journaling App</span>
-                </h2>
-                <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
-                  A product case study on taking a simple emotion journaling app from problem
-                  framing and PRD to Google Play launch, metrics, and next experiments.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {["PRD", "User flow", "Closed testing", "Google Play", "Metrics"].map(
-                    (tag) => (
-                      <span
-                        key={tag}
-                        className="border border-border px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors group-hover:border-primary/40 group-hover:text-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ),
-                  )}
-                </div>
-                <div className="mt-10 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-foreground transition-colors group-hover:text-primary">
-                  <span>View Case Study</span>
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-              </div>
-
-              <div className="md:col-span-5 md:self-stretch">
-                <div className="flex h-full flex-col justify-between border border-border bg-card p-5">
-                  <div className="mx-auto w-full max-w-[280px] overflow-hidden border border-border bg-secondary/40 p-3">
-                    <img
-                      src="/emoline/app-logo.png"
-                      alt="Emoline app logo"
-                      className="h-auto w-full"
-                    />
-                  </div>
-                  <div className="mt-6 grid gap-px border border-border bg-border sm:grid-cols-2">
-                    {[
-                      { k: "Role", v: "Product owner and builder" },
-                      { k: "Status", v: "Live on Google Play" },
-                      { k: "Flow", v: "Mood, memory, calendar, insights" },
-                      { k: "Focus", v: "Activation and retention" },
-                    ].map((item) => (
-                      <div key={item.k} className="flex flex-col justify-between bg-background p-4">
-                        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                          {item.k}
-                        </p>
-                        <p className="mt-4 text-sm leading-snug text-foreground">{item.v}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <FeaturedProjectCarousel />
           </Reveal>
         </div>
       </section>
@@ -273,7 +210,7 @@ export default function HomePage() {
               href="/work"
               className="hover-pop group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-foreground hover:text-primary"
             >
-              See supporting work
+              Browse all work
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Link>
           </Reveal>
