@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "motion/react"
-import { useState, type ReactNode } from "react"
+import { useId, useState, type ReactNode } from "react"
 import { ArrowUpRight } from "lucide-react"
 import { Sky } from "@/components/home/sky"
 import { cn } from "@/lib/utils"
@@ -245,6 +245,7 @@ export function ContentsPage({ goTo }: PageProps) {
 }
 
 export function HelloPage({ active }: PageProps) {
+  const hillId = `hill-${useId().replace(/:/g, "")}`
   return (
     <Shell n={2}>
       <h3 className="font-serif text-[clamp(28px,10cqw,54px)] italic leading-none">Hi, I&apos;m Krishna.</h3>
@@ -261,11 +262,11 @@ export function HelloPage({ active }: PageProps) {
       {/* A small flag planted on a dotted hill */}
       <svg viewBox="0 0 200 110" className="mt-auto w-full text-foreground" aria-hidden>
         <defs>
-          <pattern id="hill-dots" width="5" height="5" patternUnits="userSpaceOnUse">
+          <pattern id={hillId} width="5" height="5" patternUnits="userSpaceOnUse">
             <circle cx="2.5" cy="2.5" r="1.25" fill="var(--meadow)" />
           </pattern>
         </defs>
-        <path d="M0 110 Q 100 52 200 110 Z" fill="url(#hill-dots)" />
+        <path d="M0 110 Q 100 52 200 110 Z" fill={`url(#${hillId})`} />
         <Sketch d="M100 77 L100 22" active={active} width={1.8} />
         <Sketch d="M100 24 L128 32 L100 41" active={active} delay={0.5} width={1.6} className="text-primary" />
       </svg>
