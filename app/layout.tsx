@@ -6,6 +6,8 @@ import './globals.css'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { ThemeProvider } from '@/components/theme-provider'
+import { SmoothScroll } from '@/components/smooth-scroll'
+import { Cursor } from '@/components/cursor'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({
@@ -57,7 +59,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`dark ${geistSans.variable} ${geistMono.variable} ${newsreader.variable} bg-background`}
+      className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} bg-background`}
     >
       <body className="font-sans antialiased text-foreground">
         <script
@@ -65,7 +67,7 @@ export default function RootLayout({
             __html: `
               (() => {
                 try {
-                  const theme = localStorage.getItem('theme') || 'dark';
+                  const theme = localStorage.getItem('theme') || 'light';
                   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                   const resolved = theme === 'system' ? (prefersDark ? 'dark' : 'light') : theme;
                   document.documentElement.classList.toggle('dark', resolved === 'dark');
@@ -98,6 +100,8 @@ export default function RootLayout({
           }}
         />
         <ThemeProvider>
+          <SmoothScroll />
+          <Cursor />
           <SiteNav />
           <div id="main-content">{children}</div>
           <SiteFooter />
