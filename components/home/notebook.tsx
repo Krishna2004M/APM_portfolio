@@ -193,7 +193,10 @@ function Leaf({
     const arc = Math.sin(Math.PI * v)
     const angle = -180 * v
     const lift = arc * (isCover ? 40 : 30)
-    return `rotateY(${angle}deg) translateZ(${lift}px)`
+    // A hair of real depth so the page on top is also the one that receives clicks:
+    // on the right the lowest unturned page is on top, on the left the latest turned one.
+    const stack = 1 + (v > 0.5 ? index : LEAVES - index) * 0.2
+    return `translateZ(${stack}px) rotateY(${angle}deg) translateZ(${lift}px)`
   })
   const turning = (v: number) => v > 0.002 && v < 0.998
   const flatVisibility = useTransform<number, string>(t, (v) => (curl && turning(v) ? "hidden" : "visible"))
@@ -244,7 +247,7 @@ function Leaf({
       />
     )}
     <motion.div
-      className="leaf absolute left-1/2 top-0 h-full w-[var(--pw)]"
+      className="leaf pointer-events-auto absolute left-1/2 top-0 h-full w-[var(--pw)]"
       style={{ transform, zIndex, visibility: flatVisibility }}
     >
       <div
@@ -463,15 +466,15 @@ function DesktopBook() {
             } as React.CSSProperties
           }
         >
-          <motion.div className="relative h-full w-full [transform-style:preserve-3d]" style={{ x: shift }}>
+          <motion.div className="pointer-events-none relative h-full w-full [transform-style:preserve-3d]" style={{ x: shift }}>
             {/* Page blocks under the leaves, with edges that grow and shrink */}
             <motion.div
-              className="paper absolute left-0 top-0 h-full w-[var(--pw)] rounded-l-[4px]"
+              className="paper pointer-events-none absolute left-0 top-0 h-full w-[var(--pw)] rounded-l-[4px]"
               style={{ opacity: leftBase, boxShadow: leftStack }}
               aria-hidden
             />
             <motion.div
-              className="paper absolute left-1/2 top-0 h-full w-[var(--pw)] rounded-r-[4px]"
+              className="paper pointer-events-none absolute left-1/2 top-0 h-full w-[var(--pw)] rounded-r-[4px]"
               style={{ boxShadow: rightStack }}
               aria-hidden
             />
