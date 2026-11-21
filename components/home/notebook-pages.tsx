@@ -11,6 +11,8 @@ export type PageProps = {
   /** true when this page is on the open spread (desktop) or undefined on mobile */
   active?: boolean
   goTo: (spread: number) => void
+  /** cheaper rendering for the copies used while a page bends */
+  lite?: boolean
 }
 
 /* ------------------------------------------------------------------ */
@@ -487,7 +489,7 @@ export function ClearanceVisual({ active }: PageProps) {
   )
 }
 
-export function BlocksLeft(_: PageProps) {
+export function BlocksLeft({ lite }: PageProps) {
   return (
     <Shell n={11}>
       <h3 className="font-serif text-[clamp(30px,11cqw,58px)] italic leading-[1]">
@@ -500,7 +502,11 @@ export function BlocksLeft(_: PageProps) {
         What I bring to a product team, in six parts. Pick one to see where it comes from.
       </p>
       <div className="relative -mx-[8cqw] -mb-[7cqw] mt-auto h-[38%] overflow-hidden">
-        <Sky seed={21} cover={0.6} drift={260} className="!bg-none [mask-image:linear-gradient(to_bottom,transparent,black_45%)]" />
+        {lite ? (
+          <div className="sky absolute inset-0 !bg-none [mask-image:linear-gradient(to_bottom,transparent,black_45%)]" />
+        ) : (
+          <Sky seed={21} cover={0.6} drift={260} className="!bg-none [mask-image:linear-gradient(to_bottom,transparent,black_45%)]" />
+        )}
       </div>
     </Shell>
   )

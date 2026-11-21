@@ -150,7 +150,6 @@ function Card({
       }}
       aria-hidden={!active}
     >
-      <span className="absolute inset-x-0 top-[62px] h-px bg-[color-mix(in_oklab,#d4553f_45%,transparent)]" aria-hidden />
       <h3 className="max-w-[18ch] font-serif text-[clamp(28px,3.4vw,44px)] italic leading-[1.05] tracking-[-0.01em]">
         {habit.title}
       </h3>

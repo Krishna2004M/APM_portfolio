@@ -38,12 +38,143 @@ function useLeafProgress(index: number, flips: MotionValue<number>, peel: Peel) 
   })
 }
 
+
+/* ------------------------------------------------------------------ */
+/* Bending page                                                        */
+/* ------------------------------------------------------------------ */
+
+const SLICES = 18
+
+/**
+ * How far each point across the sheet has turned. The hinge follows the
+ * page's progress; the free edge leads while the page lifts and trails as it
+ * lands, which gives the sheet its curve.
+ */
+function sheetAngle(t: number, s: number) {
+  const base = -180 * t
+  const bend = -Math.sin(2 * Math.PI * t) * 46 * Math.pow(s, 1.6) * Math.min(1, t * 6, (1 - t) * 6)
+  return Math.max(-180, Math.min(0, base + bend))
+}
+
+function noop() {}
+
+function CurlLeaf({
+  index,
+  t,
+  front: Front,
+  back: Back,
+  frontActive,
+  backActive,
+  zIndex,
+  visibility,
+}: {
+  index: number
+  t: MotionValue<number>
+  front: (typeof pages)[number]
+  back: (typeof pages)[number] | undefined
+  frontActive: boolean
+  backActive: boolean
+  zIndex: MotionValue<number>
+  visibility: MotionValue<string>
+}) {
+  const segRefs = useRef<Array<HTMLDivElement | null>>([])
+  const frontShadeRefs = useRef<Array<HTMLDivElement | null>>([])
+  const backShadeRefs = useRef<Array<HTMLDivElement | null>>([])
+
+  useEffect(() => {
+    const apply = (v: number) => {
+      let prev = 0
+      for (let k = 0; k < SLICES; k++) {
+        const s = (k + 0.5) / SLICES
+        const abs = sheetAngle(v, s)
+        const rel = abs - prev
+        prev = abs
+        const seg = segRefs.current[k]
+        if (seg) seg.style.transform = `rotateY(${rel}deg)`
+        // Light falls from the front: paper darkens as it turns edge-on. Shading is a
+        // gradient between the slice's two edges, so the sheet reads as one smooth surface.
+        const a0 = sheetAngle(v, k / SLICES)
+        const a1 = sheetAngle(v, (k + 1) / SLICES)
+        const f = (a: number) => Math.max(0, Math.min(0.3, (-a / 90) * 0.3))
+        const b = (a: number) => Math.max(0, Math.min(0.3, ((180 + a) / 90) * 0.3))
+        const fs = frontShadeRefs.current[k]
+        if (fs) fs.style.backgroundImage = `linear-gradient(90deg, rgba(22,35,63,${f(a0)}), rgba(22,35,63,${f(a1)}))`
+        const bs = backShadeRefs.current[k]
+        if (bs) bs.style.backgroundImage = `linear-gradient(90deg, rgba(22,35,63,${b(a1)}), rgba(22,35,63,${b(a0)}))`
+      }
+    }
+    apply(t.get())
+    return t.on("change", apply)
+  }, [t])
+
+  // Build the chain from the free edge inwards: each slice holds the next one.
+  let chain: React.ReactNode = null
+  for (let k = SLICES - 1; k >= 0; k--) {
+    const inner = chain
+    chain = (
+      <div
+        key={k}
+        ref={(el) => {
+          segRefs.current[k] = el
+        }}
+        className="absolute top-0 h-full w-full origin-left [transform-style:preserve-3d]"
+        style={{ left: k === 0 ? 0 : "100%" }}
+      >
+        <div className="absolute inset-y-0 left-0 right-[-1.5px] overflow-hidden [backface-visibility:hidden]">
+          <div
+            className={cn(
+              "absolute top-0 h-full w-[var(--pw)] [container-type:inline-size]",
+              index === 0 ? "" : "paper paper-right",
+            )}
+            style={{ left: `calc(var(--pw) * ${-k} / ${SLICES})` }}
+          >
+            <Front goTo={noop} active={frontActive} lite />
+          </div>
+          <div
+            ref={(el) => {
+              frontShadeRefs.current[k] = el
+            }}
+            className="absolute inset-0"
+          />
+        </div>
+        <div className="absolute inset-y-0 left-[-1.5px] right-0 overflow-hidden [backface-visibility:hidden] [transform-origin:calc(50%+0.75px)_50%] [transform:rotateY(180deg)]">
+          <div
+            className="paper paper-left absolute top-0 h-full w-[var(--pw)] [container-type:inline-size]"
+            style={{ left: `calc(var(--pw) * ${-(SLICES - 1 - k)} / ${SLICES} + 1.5px)` }}
+          >
+            {Back && <Back goTo={noop} active={backActive} lite />}
+          </div>
+          <div
+            ref={(el) => {
+              backShadeRefs.current[k] = el
+            }}
+            className="absolute inset-0"
+          />
+        </div>
+        {inner}
+      </div>
+    )
+  }
+
+  return (
+    <motion.div
+      aria-hidden
+      inert
+      className="pointer-events-none absolute left-1/2 top-0 h-full [transform-style:preserve-3d]"
+      style={{ width: `calc(var(--pw) / ${SLICES})`, zIndex, visibility }}
+    >
+      {chain}
+    </motion.div>
+  )
+}
+
 function Leaf({
   index,
   flips,
   peel,
   spread,
   showing,
+  curl,
   goTo,
 }: {
   index: number
@@ -51,19 +182,22 @@ function Leaf({
   peel: Peel
   spread: number
   showing: [number, number]
+  curl: boolean
   goTo: (k: number) => void
 }) {
   const t = useLeafProgress(index, flips, peel)
+  const isCover = index === 0
 
-  // The page lifts off the block, bends at the free edge and settles flat.
+  // The cover is board: it swings stiffly and lifts a little. Paper pages bend (see CurlLeaf).
   const transform = useTransform(t, (v) => {
     const arc = Math.sin(Math.PI * v)
     const angle = -180 * v
-    const lift = arc * 70
-    const curl = arc * -7 // skew makes the free edge trail like bending paper
-    const tilt = arc * 2.2
-    return `rotateY(${angle}deg) translateZ(${lift}px) rotateZ(${-tilt}deg) skewY(${curl}deg)`
+    const lift = arc * (isCover ? 40 : 30)
+    return `rotateY(${angle}deg) translateZ(${lift}px)`
   })
+  const turning = (v: number) => v > 0.002 && v < 0.998
+  const flatVisibility = useTransform<number, string>(t, (v) => (curl && turning(v) ? "hidden" : "visible"))
+  const curlVisibility = useTransform<number, string>(t, (v) => (turning(v) ? "visible" : "hidden"))
   const zIndex = useTransform(t, (v) => (v > 0.5 ? (10 + index) * 2 : (10 + LEAVES - index) * 2))
 
   // Light: the front darkens as it turns away, a gloss band sweeps across it.
@@ -85,7 +219,6 @@ function Leaf({
   const backActive = onShow(backPage) && backPage < pages.length - 1
   const frontInert = spreadOfPage(frontPage) !== spread
   const backInert = spreadOfPage(backPage) !== spread || backPage >= pages.length - 1
-  const isCover = index === 0
 
   const glossStyle = {
     opacity: gloss,
@@ -97,9 +230,22 @@ function Leaf({
   }
 
   return (
+    <>
+    {curl && (
+      <CurlLeaf
+        index={index}
+        t={t}
+        front={Front}
+        back={Back}
+        frontActive={frontActive}
+        backActive={backActive}
+        zIndex={zIndex}
+        visibility={curlVisibility}
+      />
+    )}
     <motion.div
       className="leaf absolute left-1/2 top-0 h-full w-[var(--pw)]"
-      style={{ transform, zIndex }}
+      style={{ transform, zIndex, visibility: flatVisibility }}
     >
       <div
         className={cn("leaf-face front", isCover ? "rounded-r-[6px]" : "paper paper-right rounded-r-[4px]")}
@@ -129,6 +275,7 @@ function Leaf({
         <motion.div className="pointer-events-none absolute inset-0" style={glossStyle} aria-hidden />
       </div>
     </motion.div>
+    </>
   )
 }
 
@@ -307,7 +454,7 @@ function DesktopBook() {
     >
       <div className="sticky top-0 flex h-svh flex-col items-center justify-center gap-6 overflow-hidden pt-16">
         <div
-          className="relative [perspective:2400px] [perspective-origin:50%_30%]"
+          className="relative [perspective:3200px] [perspective-origin:50%_45%]"
           style={
             {
               "--pw": "min(43vw, 540px, calc((100svh - 190px) * 0.72))",
@@ -332,7 +479,7 @@ function DesktopBook() {
               <CastShadow key={`s${i}`} index={i} flips={flips} peel={peel} />
             ))}
             {Array.from({ length: LEAVES }).map((_, i) => (
-              <Leaf key={i} index={i} flips={flips} peel={peel} spread={spread} showing={showing} goTo={goTo} />
+              <Leaf key={i} index={i} flips={flips} peel={peel} spread={spread} showing={showing} curl={i > 0 && i >= spread - 1 && i <= spread} goTo={goTo} />
             ))}
             {/* Spine shadow */}
             <motion.div
